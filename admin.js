@@ -16,7 +16,7 @@ function team(){view.innerHTML=`<section class="welcome"><p>إدارة الفر�
 start();
 // Security helpers: passwords are never stored or displayed by the application.
 const passwordInput=document.querySelector('#password');
-document.querySelector('.password-toggle').onclick=e=>{const shown=passwordInput.type==='text';passwordInput.type=shown?'password':'text';e.currentTarget.textContent=shown?'إظهار':'إخفاء';e.currentTarget.setAttribute('aria-label',shown?'إظهار كلمة المرور':'إخفاء كلمة المرور')};
+const togglePassword=()=>{const t=document.querySelector('.password-toggle'),shown=passwordInput.type==='text';passwordInput.type=shown?'password':'text';t.setAttribute('aria-label',shown?'إظهار كلمة المرور':'إخفاء كلمة المرور');t.classList.toggle('shown',!shown)};document.querySelector('.password-toggle').onclick=togglePassword;document.querySelector('.password-toggle').onkeydown=e=>{if(e.key==='Enter'||e.key===' ') {e.preventDefault();togglePassword()}};
 const resetDialog=$('#reset-dialog');
 document.querySelector('#forgot-password').onclick=e=>{e.preventDefault();const email=document.querySelector('#login [name=email]').value.trim();if(email)resetDialog.querySelector('[name=reset-email]').value=email;resetDialog.showModal()};
 $('#reset-form').onsubmit=async e=>{e.preventDefault();const email=new FormData(e.target).get('reset-email');const msg=$('#reset-msg');msg.textContent='جارٍ إرسال الرابط الآمن...';const {error}=await db.auth.resetPasswordForEmail(email,{redirectTo:'https://allaamie.github.io/allaamie/admin.html'});if(error){msg.textContent='تعذر إرسال الرابط. تأكد من البريد وحاول مجدداً.';return}msg.textContent='تم الإرسال. تحقق من بريدك والرسائل غير المرغوب فيها.';e.target.reset()};
