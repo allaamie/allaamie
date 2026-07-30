@@ -19,8 +19,8 @@
       <a class="active" href="#top">الرئيسية</a><a href="#collection">المجموعة</a><a href="#heritage">حكاية الزي</a><a href="#contact">تواصل معنا</a>
     </nav>
     <div class="header-actions">
-      <button class="icon-btn" aria-label="بحث">⌕</button>
-      <button class="icon-btn bag" aria-label="سلة التسوق">♧<em>0</em></button>
+      <button class="icon-btn search-open" aria-label="بحث">⌕</button>
+      <button class="icon-btn bag cart-open" aria-label="سلة التسوق">♧<em>0</em></button>
     </div>
   </header>
 
@@ -45,11 +45,12 @@
 
     <section class="collection" id="collection">
       <div class="section-head"><div><p class="eyebrow">مختاراتنا</p><h2>الأكثر تميّزاً</h2></div><a class="text-link" href="#all">عرض كل المنتجات <span>←</span></a></div>
-      <div class="products">
-        <article class="product product-1"><div class="product-visual"><span class="tag">الأكثر طلباً</span><button class="heart" aria-label="إضافة للمفضلة">♡</button><div class="garment thobe"></div></div><div class="product-info"><div><h3>ثوب صنعاني فاخر</h3><p>قطن سويسري · أبيض عاجي</p></div><b>٣٩٥ ر.س</b></div></article>
-        <article class="product product-2"><div class="product-visual"><button class="heart" aria-label="إضافة للمفضلة">♡</button><div class="garment waistcoat"></div></div><div class="product-info"><div><h3>صديري تراثي مطرّز</h3><p>كتان طبيعي · رملي</p></div><b>٤٢٥ ر.س</b></div></article>
-        <article class="product product-3"><div class="product-visual"><button class="heart" aria-label="إضافة للمفضلة">♡</button><div class="garment shawl"></div></div><div class="product-info"><div><h3>شال يمني يدوي</h3><p>نسيج يدوي · أخضر زيتوني</p></div><b>٢٧٥ ر.س</b></div></article>
-      </div>
+      <div class="category-tabs"><button class="selected" data-filter="all">الكل</button><button data-filter="thobe">الثياب</button><button data-filter="vest">الصدريات</button><button data-filter="shawl">الشالات</button><button data-filter="accessory">الإكسسوارات</button></div>
+      <div class="products" id="products">
+        <article class="product product-1" data-category="thobe" data-name="ثوب صنعاني فاخر" data-price="395"><div class="product-visual"><span class="tag">الأكثر طلباً</span><button class="heart" aria-label="إضافة للمفضلة">♡</button><div class="garment thobe"></div></div><div class="product-info"><div><h3>ثوب صنعاني فاخر</h3><p>قطن سويسري · أبيض عاجي</p></div><b>٣٩٥ ر.س</b></div><button class="add-cart">أضف إلى السلة <span>←</span></button></article>
+        <article class="product product-2" data-category="vest" data-name="صديري تراثي مطرّز" data-price="425"><div class="product-visual"><button class="heart" aria-label="إضافة للمفضلة">♡</button><div class="garment waistcoat"></div></div><div class="product-info"><div><h3>صديري تراثي مطرّز</h3><p>كتان طبيعي · رملي</p></div><b>٤٢٥ ر.س</b></div><button class="add-cart">أضف إلى السلة <span>←</span></button></article>
+        <article class="product product-3" data-category="shawl" data-name="شال يمني يدوي" data-price="275"><div class="product-visual"><button class="heart" aria-label="إضافة للمفضلة">♡</button><div class="garment shawl"></div></div><div class="product-info"><div><h3>شال يمني يدوي</h3><p>نسيج يدوي · أخضر زيتوني</p></div><b>٢٧٥ ر.س</b></div><button class="add-cart">أضف إلى السلة <span>←</span></button></article>
+      </div><div class="all-products" id="all"><p>وصلت إلى نهاية المختارات — قريباً قطع أكثر من تراثنا.</p></div>
     </section>
 
     <section class="craft">
@@ -59,6 +60,7 @@
 
     <section class="newsletter" id="contact"><p class="eyebrow">ابقَ على مقربة</p><h2>إشراقة جديدة، تصلك أولاً</h2><form><input aria-label="بريدك الإلكتروني" type="email" placeholder="أدخل بريدك الإلكتروني" required><button type="submit">اشترك <span>←</span></button></form><small>بالاشتراك، أنت توافق على سياسة الخصوصية الخاصة بنا.</small></section>
   </main>
+  <div class="overlay"></div><aside class="cart-drawer" aria-label="سلة التسوق"><div class="drawer-head"><h2>سلة التسوق</h2><button class="drawer-close">×</button></div><div class="cart-items"><div class="empty-cart"><span>♧</span><p>سلتك فارغة حالياً</p><button class="btn btn-dark drawer-close">ابدأ التسوق</button></div></div><div class="cart-bottom"><div><span>المجموع</span><b class="cart-total">٠ ر.س</b></div><button class="checkout">إتمام الطلب <span>←</span></button></div></aside><div class="search-panel"><button class="search-close">×</button><label>ابحث في أصالة اليمن<input type="search" placeholder="مثال: ثوب، شال، صديري"></label><div class="search-results"></div></div>
   <footer><a class="brand" href="#top"><span>أصالة</span><b>اليمن</b></a><p>الأزياء الرجالية اليمنية، بحلّةٍ تليق بالأصالة.</p><div class="footer-links"><a href="#top">انستغرام</a><a href="#top">واتساب</a><a href="#top">سياسة الاستبدال</a></div><small>© ٢٠٢٦ أصالة اليمن. جميع الحقوق محفوظة.</small></footer>
   <script src="script.js"></script>
 </body>
