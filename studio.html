@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="استوديو اللامع الافتراضي — جرّب قطع الدار على شخصيتك الرقمية" />
+  <meta name="theme-color" content="#090909" />
+  <title>الاستوديو الافتراضي | AL LAMEA VIRTUAL STUDIO™</title>
+  <link rel="manifest" href="manifest.webmanifest?v=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="اللامع" />
+  <link rel="apple-touch-icon" href="assets/allamea-logo.png" />
+  <script src="error-tracker.js?v=20260731-1"></script>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="studio.css?v=1" />
+  <link rel="stylesheet" href="ai.css?v=20260731-1" />
+</head>
+<body>
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <img src="assets/allamea-logo.png" alt="اللامع" onerror="this.classList.add('logo-missing')">
+  </div>
+
+  <div class="studio">
+
+    <!-- الشريط العلوي -->
+    <header class="topbar">
+      <a class="back" href="index.html">
+        <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+        العودة إلى المتجر
+      </a>
+      <div class="mark">
+        <img src="assets/allamea-logo.png" alt="اللامع" onerror="this.classList.add('logo-missing')">
+        <b>الاستوديو الافتراضي<small>AL LAMEA VIRTUAL STUDIO™</small></b>
+      </div>
+      <button class="cart-pill" id="cart-pill" aria-label="سلة التسوق">
+        <svg viewBox="0 0 24 24"><path d="M6 8h12l-1.2 11.2a1.6 1.6 0 0 1-1.6 1.4H8.8a1.6 1.6 0 0 1-1.6-1.4L6 8Z"/><path d="M9 10V6.5a3 3 0 0 1 6 0V10"/></svg>
+        السلة <b class="num" id="cart-count">0</b>
+      </button>
+    </header>
+
+    <!-- المسرح -->
+    <section class="arena">
+
+      <!-- الأدوات (يسار الشاشة) -->
+      <aside class="rail rail-l" aria-label="أدوات الإطلالة">
+        <button class="tool" id="tool-save">
+          <svg viewBox="0 0 24 24"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4.2L5 21V4a1 1 0 0 1 1-1Z"/></svg>
+          <small>حفظ الإطلالة</small>
+        </button>
+        <button class="tool" id="tool-looks">
+          <svg viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h10"/></svg>
+          <small>إطلالاتي</small>
+        </button>
+        <button class="tool" id="tool-shot">
+          <svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4V8Z"/><circle cx="12" cy="13" r="3.4"/></svg>
+          <small>التقاط صورة</small>
+        </button>
+        <button class="tool" id="tool-share">
+          <svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.6"/><circle cx="17" cy="5.5" r="2.6"/><circle cx="17" cy="18.5" r="2.6"/><path d="m8.4 10.8 6.3-4M8.4 13.2l6.3 4"/></svg>
+          <small>مشاركة</small>
+        </button>
+        <button class="tool" id="tool-cart">
+          <svg viewBox="0 0 24 24"><path d="M6 8h12l-1.2 11.2a1.6 1.6 0 0 1-1.6 1.4H8.8a1.6 1.6 0 0 1-1.6-1.4L6 8Z"/><path d="M12 11v5M9.5 13.5h5"/></svg>
+          <small>أضف للسلة</small>
+        </button>
+        <button class="tool" id="tool-fav">
+          <svg viewBox="0 0 24 24"><path d="M12 20s-7.5-4.7-9.3-9C1.3 7.6 3.2 4.5 6.4 4.5c2 0 3.6 1.2 4.4 2.6a5.6 5.6 0 0 1 4.4-2.6c3.2 0 4.9 3.1 3.7 6.5-1.8 4.3-6.9 9-6.9 9Z"/></svg>
+          <small>المفضلة</small>
+        </button>
+      </aside>
+
+      <!-- الشخصية -->
+      <div class="stage" id="stage" data-bg="black">
+        <div class="stage-atmo"></div>
+        <div class="stage-glow"></div>
+        <div id="stage-zoom">
+          <div id="stage-rot">
+            <div class="avatar-box" id="avatar-box">
+              <div class="pedestal"><span class="ped-ring" id="ped-ring"></span></div>
+              <div id="avatar-holder"></div>
+              <div id="wear-layers"></div>
+            </div>
+          </div>
+        </div>
+        <div class="stage-vignette"></div>
+
+        <div class="zoom-fab">
+          <button id="zoom-in" aria-label="تقريب">+</button>
+          <button id="zoom-out" aria-label="إبعاد">−</button>
+          <button id="zoom-reset" aria-label="إعادة الضبط">⌂</button>
+        </div>
+
+        <div class="look-total" id="look-total"><span>إجمالي الإطلالة</span><b class="num">0 ر.س</b><span id="look-count"></span></div>
+
+        <div class="stage-hint" id="stage-hint">
+          <span><svg viewBox="0 0 24 24"><path d="M4 12h16M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg>اسحب للتدوير</span>
+          <span><svg viewBox="0 0 24 24"><path d="M12 4v16M8 8l4-4 4 4M8 16l4 4 4-4"/></svg>عجلة الفأرة للتقريب</span>
+        </div>
+
+        <!-- المستشار الذكي -->
+        <div class="advisor" id="advisor" role="dialog" aria-label="مستشار اللامع الذكي">
+          <div class="adv-head">
+            <svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4L12 3Z"/><path d="M18.5 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8.8-2.2Z"/></svg>
+            <b>مستشار اللامع الذكي</b>
+            <span class="icon-x" id="adv-close" role="button" aria-label="إغلاق">×</span>
+          </div>
+          <p class="adv-text" id="adv-text"></p>
+          <div class="adv-list" id="adv-list"></div>
+        </div>
+      </div>
+
+      <!-- التحكم (يمين الشاشة) -->
+      <aside class="rail rail-r" id="rail-r" aria-label="إعدادات الاستوديو">
+        <div class="toggle-row rail-r-close-row">
+          <h5>إعدادات الاستوديو</h5>
+          <span class="icon-x rail-r-close" id="rail-r-close" role="button" aria-label="إغلاق" style="font-size:18px">×</span>
+        </div>
+
+        <div>
+          <h5>الشخصية</h5>
+          <div class="character-grid" id="character-grid"></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div>
+          <h5>تخصيص الملامح</h5>
+          <div id="customizer" style="display:grid;gap:13px"></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div>
+          <h5>أجواء المسرح</h5>
+          <div class="dots bg-dots" id="bg-dots"></div>
+        </div>
+
+        <div class="toggle-row">
+          <span>الدوران التلقائي ٣٦٠°</span>
+          <button class="switch" id="auto-rotate" role="switch" aria-checked="false"><i></i></button>
+        </div>
+
+        <button class="ghost-btn" id="reset-all">إعادة ضبط الاستوديو</button>
+        <button class="ghost-btn" id="strip-all">خلع كل القطع</button>
+
+        <div class="divider"></div>
+
+        <button class="ghost-btn" id="adv-open" style="color:var(--gold-l);border-color:rgba(184,145,70,.4)">✦ اسأل المستشار الذكي</button>
+      </aside>
+    </section>
+
+    <!-- شريط المنتجات -->
+    <section class="catalog" aria-label="منتجات المتجر">
+      <nav class="tabs" id="tabs" aria-label="أقسام المنتجات"></nav>
+      <div class="cat-scroll" id="cat-scroll"></div>
+    </section>
+  </div>
+
+  <!-- الإطلالات المحفوظة -->
+  <aside class="looks" id="looks" role="dialog" aria-label="إطلالاتي المحفوظة">
+    <header><b>إطلالاتي</b><span class="icon-x" id="looks-close" role="button" aria-label="إغلاق">×</span></header>
+    <div class="looks-body" id="looks-body"></div>
+  </aside>
+
+  <!-- تسمية الإطلالة -->
+  <div class="save-look-dialog" id="save-look-dialog">
+    <div class="save-look-card">
+      <b>حفظ الإطلالة</b>
+      <p>امنح إطلالتك اسماً لتعود إليها متى شئت — بلا حدود.</p>
+      <input id="look-name" maxlength="30" placeholder="مثال: إطلالة العيد">
+      <div class="look-sugg" id="look-sugg"></div>
+      <div class="save-look-actions">
+        <button class="ghost-btn" id="save-look-cancel">إلغاء</button>
+        <button class="gold-btn" id="save-look-ok">حفظ الإطلالة</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>window.ALAMEA_ANALYTICS_CONFIG = { ga4: '', meta: '', tiktok: '', clarity: '' };</script>
+  <script src="analytics.js?v=20260731-2"></script>
+  <script src="catalog.js?v=1"></script>
+  <script src="studio.js?v=20260731-2"></script>
+  <script src="ai.js?v=20260731-2" defer></script>
+  <script src="pwa.js?v=20260731-1" defer></script>
+</body>
+</html>

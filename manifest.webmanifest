@@ -1,0 +1,23 @@
+{
+  "name": "اللامع | AL LAMEA",
+  "short_name": "اللامع",
+  "description": "دار أزياء يمنية فاخرة — أصالة يمنية بفخامة عالمية، مع استوديو افتراضي وخبير أزياء ذكي.",
+  "lang": "ar",
+  "dir": "rtl",
+  "id": "./index.html",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#090909",
+  "theme_color": "#090909",
+  "categories": ["shopping", "fashion", "lifestyle"],
+  "icons": [
+    { "src": "assets/favicon.png", "sizes": "256x256", "type": "image/png" },
+    { "src": "assets/allamea-logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ],
+  "shortcuts": [
+    { "name": "المجموعة", "url": "./index.html#collection", "icons": [{ "src": "assets/favicon.png", "sizes": "256x256" }] },
+    { "name": "الاستوديو الافتراضي", "url": "./studio.html", "icons": [{ "src": "assets/favicon.png", "sizes": "256x256" }] }
+  ]
+}

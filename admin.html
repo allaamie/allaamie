@@ -1,1 +1,120 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>إدارة أصالة اليمن</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700&family=Reem+Kufi:wght@500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="admin.css?v=20260730-3"></head><body><main id="auth" class="auth"><section class="auth-showcase"><a class="logo" href="index.html">أصالة <b>اليمن</b></a><div class="showcase-copy"><p class="auth-kicker">منصة الإدارة المتكاملة</p><h1>حيث تتحول<br>الأصالة إلى <i>أثر.</i></h1><p>مساحة عمل صُممت لإدارة كل تفصيلة من تفاصيل علامتك، بثقةٍ وأناقة.</p></div><div class="showcase-footer"><span>© ٢٠٢٦ أصالة اليمن</span><span>الإدارة · الإصدار ١.٠</span></div></section><section class="auth-form-side"><div class="auth-card"><div class="mobile-logo"><a class="logo" href="index.html">أصالة <b>اليمن</b></a></div><p class="auth-kicker">مرحباً بعودتك</p><h2>تسجيل الدخول</h2><p class="form-intro">أدخل بياناتك للوصول إلى لوحة التحكم.</p><form id="login"><label>البريد الإلكتروني<input type="email" name="email" required placeholder="name@example.com"></label><label>كلمة المرور<div class="password-field"><input id="password" type="password" name="password" required placeholder="••••••••"><span class="password-toggle" role="button" tabindex="0" aria-label="إظهار كلمة المرور"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.2 12s3.5-6 9.8-6 9.8 6 9.8 6-3.5 6-9.8 6-9.8-6-9.8-6Z"/><circle cx="12" cy="12" r="2.8"/></svg></span></div></label><div class="form-options"><label class="remember"><input type="checkbox"> تذكرني</label><a href="#" id="forgot-password">نسيت كلمة المرور؟</a></div><button>دخول آمن <span>←</span></button><small id="auth-msg"></small></form><div class="secure-note"><span>✦</span> دخول مشفّر وآمن لفريق أصالة اليمن</div></div></section></main><main id="app" hidden><aside><a class="logo" href="index.html">أصالة <b>اليمن</b></a><p class="role" id="role">—</p><nav><button class="active" data-page="dashboard">◫ نظرة عامة</button><button data-page="products">▣ المنتجات</button><button data-page="orders">▤ الطلبات</button><button data-page="team">♙ الفريق</button></nav><button id="signout" class="signout">تسجيل الخروج ←</button></aside><section class="content"><header><div><p id="today"></p><h1 id="page-title">نظرة عامة</h1></div><a href="index.html" target="_blank">عرض المتجر ↗</a></header><div id="view"></div></section></main><dialog id="product-dialog"><form method="dialog" id="product-form"><div class="modal-head"><h2 id="modal-title">منتج جديد</h2><button value="cancel">×</button></div><input type="hidden" name="id"><div class="form-grid"><label>اسم المنتج<input name="name" required></label><label>الرابط المختصر<input name="slug" required placeholder="thobe-sanaani"></label><label>السعر (ر.س)<input name="price" type="number" min="0" required></label><label>سعر التخفيض<input name="sale_price" type="number" min="0"></label><label>المخزون<input name="stock" type="number" min="0" required></label><label>التصنيف<select name="category_id" id="product-category"></select></label><label>رابط الصورة<input name="image_url" type="url" placeholder="https://..."></label><label>المقاسات (مثال S,M,L)<input name="sizes"></label></div><label>الوصف<textarea name="description"></textarea></label><label class="check"><input name="is_active" type="checkbox" checked> ظاهر في المتجر</label><button class="save">حفظ المنتج</button></form></dialog><script type="module" src="admin.js?v=20260730-3"></script></body></html>
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0B0B0B">
+<title>إدارة المنتجات — اللامع | AL LAMEA</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="error-tracker.js?v=20260731-1"></script>
+<link rel="stylesheet" href="admin.css?v=20260731-3">
+</head>
+<body>
+
+<!-- ═══ تسجيل الدخول ═══ -->
+<main id="auth" class="auth">
+  <section class="auth-brand">
+    <span class="auth-halo"></span>
+    <img class="auth-logo" src="assets/allamea-logo.png" alt="اللامع" onerror="this.classList.add('logo-missing')">
+    <h2>لوحة تحكم <em>اللامع</em></h2>
+    <p>نظام إدارة متكامل — منتجاتك، طلباتك، واستوديوك الافتراضي في مكانٍ واحد.</p>
+    <footer>© <span class="num">2026</span> اللامع | AL LAMEA · الإصدار ٢.٠</footer>
+  </section>
+  <section class="auth-side">
+    <div class="auth-card">
+      <p class="auth-kicker">مرحباً بعودتك ✦</p>
+      <h1>تسجيل الدخول</h1>
+      <p class="auth-intro">أدخل بياناتك للوصول إلى لوحة التحكم.</p>
+      <form id="login">
+        <label>البريد الإلكتروني
+          <input type="email" name="email" required placeholder="name@example.com" autocomplete="email">
+        </label>
+        <label>كلمة المرور
+          <div class="pass-field">
+            <input id="password" type="password" name="password" required placeholder="••••••••" autocomplete="current-password">
+            <span class="password-toggle" role="button" tabindex="0" aria-label="إظهار كلمة المرور">
+              <svg viewBox="0 0 24 24"><path d="M2.2 12s3.5-6 9.8-6 9.8 6 9.8 6-3.5 6-9.8 6-9.8-6-9.8-6Z"/><circle cx="12" cy="12" r="2.8"/></svg>
+            </span>
+          </div>
+        </label>
+        <div class="auth-row">
+          <label class="remember"><input type="checkbox"> تذكرني</label>
+          <a href="#" id="forgot-password">نسيت كلمة المرور؟</a>
+        </div>
+        <button class="btn-gold" type="submit">دخول آمن <span>←</span></button>
+        <small id="auth-msg"></small>
+      </form>
+      <div class="secure-note"><span>✦</span> دخول مشفّر وآمن لفريق اللامع</div>
+    </div>
+  </section>
+</main>
+
+<!-- ═══ لوحة التحكم ═══ -->
+<main id="app" hidden>
+  <aside class="side">
+    <a class="side-logo" href="index.html" title="المتجر">
+      <img src="assets/allamea-logo.png" alt="اللامع" onerror="this.classList.add('logo-missing')">
+      <b>اللامع<small>لوحة التحكم</small></b>
+    </a>
+    <p class="role" id="role">—</p>
+    <nav>
+      <button class="active" data-page="dashboard"><svg viewBox="0 0 24 24"><path d="M3 12l9-8 9 8M6 10v10h12V10"/></svg>القيادة الذكية</button>
+      <button data-page="suite"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 4.9L19.5 8l-3.6 3.5.9 5.2-4.8-2.6-4.8 2.6.9-5.2L4.5 8l5.1-1.1L12 2Z"/></svg>الذكاء والأتمتة</button>
+      <button data-page="monitor"><svg viewBox="0 0 24 24"><path d="M3 12h4l2.5-6 4 12 2.5-6h5"/><circle cx="12" cy="12" r="10"/></svg>المراقبة</button>
+      <button data-page="products"><svg viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>المنتجات</button>
+      <button data-page="orders"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5z"/><path d="M9 4V2h6v2M9 10h6M9 14h4"/></svg>الطلبات</button>
+      <button data-page="team"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.4"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.8a3.4 3.4 0 0 1 0 6.4M17.5 14a6.5 6.5 0 0 1 4 6"/></svg>الفريق</button>
+    </nav>
+    <a class="side-store" href="index.html" target="_blank">عرض المتجر ↗</a>
+    <button id="signout" class="side-out">تسجيل الخروج ←</button>
+  </aside>
+  <section class="workspace">
+    <header class="top">
+      <div><p id="today"></p><h1 id="page-title">نظرة عامة</h1></div>
+      <div class="top-side">
+        <button class="icon-round" id="theme-toggle" title="الوضع الفاتح / الداكن" aria-label="تبديل الوضع">
+          <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"/></svg>
+        </button>
+        <button class="icon-round" id="bell" title="الإشعارات الذكية" aria-label="الإشعارات">
+          <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg>
+          <em id="bell-count" class="bell-badge num" hidden></em>
+        </button>
+      </div>
+    </header>
+    <div class="notif-panel" id="notif-panel" hidden></div>
+    <div id="view" aria-live="polite"></div>
+  </section>
+</main>
+
+<!-- استعادة كلمة المرور -->
+<dialog id="reset-dialog" class="mini-dialog">
+  <form id="reset-form">
+    <button type="button" class="x" id="reset-close">×</button>
+    <p class="auth-kicker">استعادة الوصول</p>
+    <h3>نسيت كلمة المرور؟</h3>
+    <p class="auth-intro">سنرسل رابطاً آمناً إلى بريدك لتعيين كلمة مرور جديدة.</p>
+    <label>البريد الإلكتروني<input name="reset-email" type="email" required placeholder="name@example.com"></label>
+    <button class="btn-gold" type="submit">إرسال الرابط</button>
+    <small id="reset-msg"></small>
+  </form>
+</dialog>
+
+<!-- تأكيد عام -->
+<dialog id="confirm-dialog" class="mini-dialog">
+  <div class="confirm-body">
+    <h3 id="confirm-title">تأكيد</h3>
+    <p id="confirm-msg"></p>
+    <div class="confirm-actions">
+      <button class="ghost" id="confirm-no">تراجع</button>
+      <button class="danger" id="confirm-yes">تأكيد</button>
+    </div>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status"></div>
+<script type="module" src="admin.js?v=20260731-3"></script>
+</body>
+</html>
