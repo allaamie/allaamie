@@ -1,0 +1,246 @@
+/* ═══════════════════════════════════════════════════════════
+   AL LAMEA AI™ — خبير اللامع · واجهة منصة ذكاء العملاء
+   Glass Concierge · Gold Pulse · RTL Luxury
+   ═══════════════════════════════════════════════════════════ */
+.ai-fab{
+  position:fixed;left:22px;bottom:22px;z-index:9000;width:62px;height:62px;border-radius:50%;
+  display:grid;place-items:center;font-size:24px;color:#14100a;cursor:pointer;border:0;
+  background:linear-gradient(135deg,#D6BE7A,#B89146 55%,#8C6B2F);
+  box-shadow:0 14px 38px -8px rgba(184,145,70,.55),0 0 0 0 rgba(184,145,70,.4);
+  transition:.45s cubic-bezier(.16,1,.3,1);animation:aiBreath 3.4s ease-in-out infinite;
+}
+@keyframes aiBreath{50%{box-shadow:0 14px 44px -6px rgba(184,145,70,.7),0 0 0 14px rgba(184,145,70,0)}}
+.ai-fab:hover{transform:translateY(-3px) scale(1.05);animation-play-state:paused}
+.ai-fab:active{transform:scale(.94)}
+.ai-fab.hide{opacity:0;pointer-events:none;transform:translateY(20px) scale(.8)}
+.ai-fab em{
+  position:absolute;top:-3px;right:-3px;min-width:20px;height:20px;padding:0 5px;border-radius:12px;
+  background:#C62828;color:#fff;font:700 10px/20px 'Inter',sans-serif;font-style:normal;text-align:center;
+  box-shadow:0 4px 12px -3px rgba(198,40,40,.7);animation:aiPop .4s cubic-bezier(.16,1,.3,1)
+}
+@keyframes aiPop{from{transform:scale(.3);opacity:0}}
+
+/* ── اللوحة ──────────────────────────────────── */
+.ai-panel{
+  position:fixed;left:22px;bottom:96px;z-index:9001;width:min(406px,calc(100vw - 24px));height:min(700px,calc(100dvh - 120px));
+  display:flex;flex-direction:column;overflow:hidden;border-radius:24px;
+  background:linear-gradient(170deg,rgba(255,255,255,.05),rgba(255,255,255,.012)),#121210;
+  border:1px solid rgba(184,145,70,.32);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  box-shadow:0 40px 90px -24px rgba(0,0,0,.75);color:#FAFAFA;font-family:'IBM Plex Sans Arabic',sans-serif;font-size:13px;
+  opacity:0;visibility:hidden;transform:translateY(26px) scale(.96);transform-origin:bottom left;
+  transition:.5s cubic-bezier(.16,1,.3,1);
+}
+.ai-panel.open{opacity:1;visibility:visible;transform:none}
+.ai-panel::before{content:'';position:absolute;inset:0;pointer-events:none;border-radius:24px;
+  background:radial-gradient(120% 50% at 50% 0%,rgba(184,145,70,.12),transparent 60%)}
+
+/* الرأس */
+.ai-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:15px 16px 12px;border-bottom:1px solid rgba(255,255,255,.07);position:relative}
+.ai-id{display:flex;align-items:center;gap:11px;min-width:0}
+.ai-orb{width:38px;height:38px;flex:none;border-radius:50%;position:relative;
+  background:radial-gradient(circle at 32% 28%,#EFE3BE,#B89146 55%,#6E5322);
+  box-shadow:0 0 22px rgba(184,145,70,.55),inset 0 0 8px rgba(255,255,255,.25)}
+.ai-orb::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(184,145,70,.45);animation:aiBreath 3s ease-in-out infinite}
+.ai-id b{display:block;font-family:'Amiri',serif;font-weight:400;font-size:19px;line-height:1.3}
+.ai-id span{display:block;font-size:8.5px;letter-spacing:1.4px;color:#B89146;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:190px}
+.ai-tools{display:flex;gap:6px;flex:none}
+.ai-tools button{width:34px;height:34px;border-radius:11px;border:1px solid rgba(255,255,255,.1);color:#A8A8A8;font-size:13px;display:grid;place-items:center;transition:.3s;background:rgba(255,255,255,.03)}
+.ai-tools button:hover{color:#D6BE7A;border-color:rgba(184,145,70,.45)}
+.ai-tools button.on{color:#14100a;background:linear-gradient(135deg,#D6BE7A,#B89146);border-color:transparent}
+#ai-close{font-size:18px;line-height:1}
+
+/* التبويبات */
+.ai-tabs{display:flex;gap:7px;padding:11px 14px 10px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid rgba(255,255,255,.06)}
+.ai-tabs::-webkit-scrollbar{display:none}
+.ai-tabs button{position:relative;flex:none;padding:8px 13px;border-radius:20px;border:1px solid rgba(255,255,255,.1);color:#A8A8A8;font-size:10.5px;font-weight:600;white-space:nowrap;transition:.3s;background:transparent}
+.ai-tabs button:hover{color:#FAFAFA;border-color:rgba(255,255,255,.25)}
+.ai-tabs button.on{color:#14100a;background:linear-gradient(135deg,#D6BE7A,#B89146);border-color:transparent;box-shadow:0 6px 16px -6px rgba(184,145,70,.6)}
+.ai-tabs em{position:absolute;top:-6px;left:-4px;min-width:16px;height:16px;border-radius:9px;background:#C62828;color:#fff;font:700 9px/16px 'Inter',sans-serif;font-style:normal;padding:0 4px}
+
+/* الخيط */
+.ai-thread{flex:1;overflow-y:auto;padding:16px 14px 8px;display:flex;flex-direction:column;gap:12px;scrollbar-width:thin}
+.ai-thread::-webkit-scrollbar{width:6px}
+.ai-thread::-webkit-scrollbar-thumb{background:#2c2b26;border-radius:6px}
+.ai-msg{max-width:86%;padding:11px 14px;border-radius:16px;font-size:12.5px;line-height:1.95;animation:aiIn .45s cubic-bezier(.16,1,.3,1) both;overflow-wrap:anywhere}
+@keyframes aiIn{from{opacity:0;transform:translateY(12px)}}
+.ai-msg.ai{align-self:flex-start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-start-start-radius:5px}
+.ai-msg.user{align-self:flex-end;background:linear-gradient(135deg,rgba(214,190,122,.2),rgba(184,145,70,.18));border:1px solid rgba(184,145,70,.4);border-start-end-radius:5px;color:#F5F1E8}
+.ai-msg b{color:#D6BE7A;font-weight:600}
+.ai-msg small{color:#9A9A9A}
+.ai-note{font-size:9.5px;color:#8d8a80;background:rgba(255,255,255,.035);border:1px dashed rgba(184,145,70,.3);border-radius:11px;padding:8px 12px;animation:aiIn .45s both}
+.ai-note b{color:#D6BE7A}
+
+/* مؤشر الكتابة */
+.ai-typing{align-self:flex-start;display:flex;gap:5px;padding:13px 16px;background:rgba(255,255,255,.05);border-radius:16px;border-start-start-radius:5px}
+.ai-typing i{width:6px;height:6px;border-radius:50%;background:#B89146;animation:aiDot 1.1s ease-in-out infinite}
+.ai-typing i:nth-child(2){animation-delay:.16s}.ai-typing i:nth-child(3){animation-delay:.32s}
+@keyframes aiDot{30%{transform:translateY(-5px);opacity:1}60%{opacity:.4}}
+
+/* الرقائق */
+.ai-sugg{display:flex;gap:7px;padding:8px 14px;overflow-x:auto;scrollbar-width:none;flex-wrap:wrap;max-height:118px}
+.ai-sugg::-webkit-scrollbar{display:none}
+.ai-sugg:empty{display:none}
+.ai-chip{flex:none;padding:8px 14px;border-radius:20px;border:1px solid rgba(184,145,70,.35);color:#D6BE7A;font-size:10.5px;font-weight:600;transition:.3s;background:rgba(184,145,70,.06);animation:aiIn .35s both}
+.ai-chip:hover{background:rgba(184,145,70,.18);color:#F0E3BC;transform:translateY(-1px)}
+.ai-chip.ghosty{border-color:rgba(255,255,255,.12);color:#A8A8A8;background:transparent}
+.ai-chip.ghosty:hover{color:#FAFAFA;border-color:rgba(255,255,255,.3)}
+.ai-chip.sel{background:linear-gradient(135deg,#D6BE7A,#B89146);color:#14100a;border-color:transparent}
+
+/* المُدخل */
+.ai-composer{display:flex;gap:8px;padding:12px 14px 14px;border-top:1px solid rgba(255,255,255,.07);background:rgba(0,0,0,.25)}
+.ai-composer input{flex:1;min-width:0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:12px 15px;color:#FAFAFA;font:400 12.5px 'IBM Plex Sans Arabic',sans-serif;outline:none;transition:.3s}
+.ai-composer input:focus{border-color:#B89146;box-shadow:0 0 0 3px rgba(184,145,70,.15);background:rgba(255,255,255,.07)}
+.ai-composer input::placeholder{color:#7c7a72}
+.ai-composer button{flex:none;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;transition:.3s;border:1px solid transparent}
+#ai-mic{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1);color:#A8A8A8;font-size:15px}
+#ai-mic:hover{color:#D6BE7A;border-color:rgba(184,145,70,.4)}
+#ai-mic.live{background:rgba(198,40,40,.18);border-color:rgba(198,40,40,.5);color:#ff9b9b;animation:aiMic 1.2s ease-in-out infinite}
+@keyframes aiMic{50%{box-shadow:0 0 0 8px rgba(198,40,40,.1)}}
+.ai-send{background:linear-gradient(135deg,#D6BE7A,#B89146);color:#14100a;font-size:19px;font-weight:700}
+.ai-send:hover{filter:brightness(1.12);transform:translateY(-1px)}
+
+/* بطاقات المنتجات داخل المحادثة */
+.ai-cards{align-self:stretch;display:flex;gap:10px;overflow-x:auto;padding:4px 2px 8px;scrollbar-width:thin;animation:aiIn .5s both}
+.ai-cards::-webkit-scrollbar{height:5px}
+.ai-cards::-webkit-scrollbar-thumb{background:#2c2b26;border-radius:5px}
+.ai-card{flex:none;width:158px;border-radius:16px;overflow:hidden;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);cursor:pointer;transition:.35s cubic-bezier(.16,1,.3,1);position:relative}
+.ai-card:hover{transform:translateY(-3px);border-color:rgba(184,145,70,.5);box-shadow:0 16px 34px -14px rgba(0,0,0,.6)}
+.ai-card img{width:100%;aspect-ratio:.92;object-fit:cover;display:block;filter:saturate(.95)}
+.ai-card>div{padding:9px 11px 10px}
+.ai-card b{display:block;font-size:11px;font-weight:600;line-height:1.6;min-height:34px}
+.ai-card .num{font-family:'Inter',sans-serif;font-size:10.5px;color:#D6BE7A}
+.ai-card s{color:#8d8a80;font-size:9.5px;margin-inline-start:5px}
+.ai-card .ai-why{display:block;font-size:8.8px;color:#9A9A9A;line-height:1.6;margin-top:4px}
+.ai-card .ai-match{position:absolute;top:8px;left:8px;background:rgba(20,56,46,.85);border:1px solid rgba(127,212,138,.4);color:#9fe0a8;font:600 8.5px 'Inter',sans-serif;padding:3px 8px;border-radius:9px;backdrop-filter:blur(6px)}
+.ai-card .ai-out{position:absolute;inset:0;background:rgba(10,10,10,.66);display:grid;place-items:center;font-size:11px;color:#e8c9c9;backdrop-filter:blur(2px)}
+
+/* الإطلالة المقترحة */
+.ai-outfit{align-self:stretch;display:grid;gap:9px;animation:aiIn .5s both}
+.ai-piece{display:grid;grid-template-columns:74px 1fr;gap:12px;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:10px;transition:.3s}
+.ai-piece:hover{border-color:rgba(184,145,70,.4)}
+.ai-piece img{width:74px;height:74px;object-fit:cover;border-radius:12px}
+.ai-piece .pc-t{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.ai-piece b{font-size:12px;font-weight:600}
+.ai-piece .num{font-family:'Inter',sans-serif;color:#D6BE7A;font-size:11px;white-space:nowrap}
+.ai-piece .why{font-size:9.5px;color:#A8A8A8;line-height:1.75;margin-top:3px}
+.ai-piece .alts{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap}
+.ai-piece .alts button{font-size:8.8px;color:#D6BE7A;border:1px solid rgba(184,145,70,.3);border-radius:10px;padding:3px 9px;transition:.25s;background:transparent;cursor:pointer}
+.ai-piece .alts button:hover{background:rgba(184,145,70,.15)}
+.ai-outfit-foot{display:flex;gap:9px;align-items:center;justify-content:space-between;background:linear-gradient(135deg,rgba(184,145,70,.16),rgba(20,56,46,.2));border:1px solid rgba(184,145,70,.35);border-radius:16px;padding:12px 14px}
+.ai-outfit-foot b{font-size:12px}
+.ai-outfit-foot .num{font-family:'Inter',sans-serif;font-size:16px;color:#D6BE7A;font-weight:600}
+.ai-gbtn{padding:11px 18px;border-radius:13px;background:linear-gradient(135deg,#D6BE7A,#B89146 60%,#8C6B2F);color:#14100a;font-size:11.5px;font-weight:700;border:0;cursor:pointer;transition:.3s;box-shadow:0 10px 24px -10px rgba(184,145,70,.5)}
+.ai-gbtn:hover{filter:brightness(1.12);transform:translateY(-1px)}
+.ai-cbtn{padding:11px 15px;border-radius:13px;background:transparent;color:#A8A8A8;font-size:10.5px;border:1px solid rgba(255,255,255,.16);cursor:pointer;transition:.3s}
+.ai-cbtn:hover{border-color:#B89146;color:#D6BE7A}
+
+/* مقياس التقييم */
+.ai-score{display:flex;gap:16px;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:15px;animation:aiIn .5s both}
+.ai-ring{position:relative;width:92px;height:92px;flex:none}
+.ai-ring svg{transform:rotate(-90deg);width:100%;height:100%}
+.ai-ring circle{fill:none;stroke-width:7;stroke-linecap:round}
+.ai-ring .bg{stroke:rgba(255,255,255,.08)}
+.ai-ring .fg{stroke:url(#aiRingGrad);stroke-dasharray:264;stroke-dashoffset:264;transition:stroke-dashoffset 1.4s cubic-bezier(.16,1,.3,1)}
+.ai-ring b{position:absolute;inset:0;display:grid;place-items:center;font:600 22px 'Inter',sans-serif;color:#D6BE7A}
+.ai-ring small{position:absolute;inset:0;display:grid;place-items:end center;padding-bottom:16px;font-size:8px;color:#9A9A9A}
+.ai-score-parts{flex:1;display:grid;gap:7px;min-width:0}
+.ai-sp{display:grid;grid-template-columns:1fr auto;gap:6px;font-size:9.8px;color:#A8A8A8;align-items:center}
+.ai-sp b{font-family:'Inter',sans-serif;color:#E8E4DA;font-weight:600}
+.ai-sp i{grid-column:1/-1;height:4px;border-radius:4px;background:rgba(255,255,255,.07);overflow:hidden;display:block;font-style:normal}
+.ai-sp i u{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,#8C6B2F,#B89146,#D6BE7A);transition:width 1.2s cubic-bezier(.16,1,.3,1);text-decoration:none}
+.ai-tips{align-self:stretch;display:grid;gap:7px}
+.ai-tip{display:flex;gap:9px;font-size:10.5px;color:#C9C5BA;background:rgba(184,145,70,.07);border:1px solid rgba(184,145,70,.22);border-radius:12px;padding:9px 12px;line-height:1.8;animation:aiIn .5s both}
+.ai-tip::before{content:'✦';color:#B89146;flex:none}
+
+/* المقارنة */
+.ai-cmp{align-self:stretch;overflow-x:auto;border:1px solid rgba(255,255,255,.09);border-radius:16px;animation:aiIn .5s both;background:rgba(255,255,255,.03)}
+.ai-cmp table{width:100%;border-collapse:collapse;min-width:330px}
+.ai-cmp th,.ai-cmp td{padding:10px 11px;font-size:10.5px;text-align:right;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:top}
+.ai-cmp th{width:74px;color:#9A9A9A;font-weight:600;font-size:9.5px;background:rgba(255,255,255,.03)}
+.ai-cmp td{color:#F0EDE6}
+.ai-cmp td img{width:100%;max-width:104px;aspect-ratio:.9;object-fit:cover;border-radius:11px}
+.ai-cmp td b{display:block;font-size:11.5px;margin-top:6px}
+.ai-cmp .num{font-family:'Inter',sans-serif}
+.ai-cmp .win{color:#9fe0a8}
+.ai-cmp s{color:#8d8a80;font-size:9px}
+.ai-cmp tr:last-child th,.ai-cmp tr:last-child td{border-bottom:0}
+.ai-sw{display:inline-block;width:13px;height:13px;border-radius:50%;border:1px solid rgba(255,255,255,.25);margin:0 2px 6px;vertical-align:middle}
+
+/* حالة الطلب */
+.ai-order{align-self:stretch;display:grid;gap:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:13px;animation:aiIn .5s both}
+.ai-order .o-head{display:flex;justify-content:space-between;font-size:11px;align-items:center}
+.ai-order .o-head b{font-family:'Inter',sans-serif;color:#D6BE7A;letter-spacing:.5px}
+.ai-order .o-head span{color:#9A9A9A;font-size:9px}
+.ai-steps{display:flex;align-items:center;gap:0;margin-top:4px}
+.ai-steps i{flex:none;width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,.15);display:grid;place-items:center;font-size:9px;font-style:normal;color:#9A9A9A;background:rgba(255,255,255,.04)}
+.ai-steps i.done{border-color:#B89146;background:rgba(184,145,70,.2);color:#D6BE7A}
+.ai-steps i.now{border-color:#D6BE7A;background:#B89146;color:#14100a;box-shadow:0 0 12px rgba(184,145,70,.5)}
+.ai-steps u{flex:1;height:2px;background:rgba(255,255,255,.1);text-decoration:none}
+.ai-steps u.done{background:#B89146}
+.ai-steps-labels{display:flex;justify-content:space-between;font-size:7.8px;color:#9A9A9A;margin-top:5px}
+
+/* البحث بالصورة */
+.ai-drop{align-self:stretch;border:2px dashed rgba(184,145,70,.4);border-radius:18px;padding:26px 16px;text-align:center;color:#A8A8A8;font-size:11.5px;cursor:pointer;transition:.3s;background:rgba(184,145,70,.04);animation:aiIn .5s both}
+.ai-drop:hover,.ai-drop.over{border-color:#D6BE7A;background:rgba(184,145,70,.1);color:#D6BE7A}
+.ai-drop b{display:block;font-size:13px;color:#F0EDE6;margin-bottom:5px}
+.ai-drop input{display:none}
+.ai-drop img.prev{max-width:120px;border-radius:12px;margin:0 auto 10px;display:block;border:1px solid rgba(184,145,70,.35)}
+.ai-scan{align-self:stretch;text-align:center;padding:18px;font-size:11px;color:#D6BE7A}
+.ai-scan::after{content:'';display:block;width:60%;height:2px;margin:12px auto 0;background:linear-gradient(90deg,transparent,#B89146,transparent);animation:aiScan 1.4s ease-in-out infinite}
+@keyframes aiScan{50%{transform:translateX(18%);opacity:.6}}
+
+/* التقييمات داخل صفحة المنتج */
+.rv-strip{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:16px;padding:13px 15px;border:1px solid rgba(184,145,70,.25);border-radius:15px;background:linear-gradient(135deg,rgba(184,145,70,.09),rgba(20,56,46,.14))}
+.rv-strip .stars{color:#D6BE7A;font-size:13px;letter-spacing:2px}
+.rv-strip b{font:600 15px 'Inter',sans-serif;color:#F5F1E8}
+.rv-strip span{font-size:10px;color:#A8A8A8}
+.rv-notes{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.rv-notes i{font-style:normal;font-size:9px;color:#D6BE7A;border:1px solid rgba(184,145,70,.3);padding:4px 10px;border-radius:10px;background:rgba(184,145,70,.07)}
+.rv-list{margin-top:12px;display:grid;gap:9px;max-height:220px;overflow:auto}
+.rv-item{font-size:10.5px;color:#C9C5BA;background:rgba(255,255,255,.035);border-radius:12px;padding:10px 13px;line-height:1.85}
+.rv-item b{color:#F0EDE6;font-size:10.5px;display:flex;justify-content:space-between}
+.rv-item .stars{color:#D6BE7A;font-size:9.5px}
+.rv-form{margin-top:13px;display:grid;gap:9px;border-top:1px dashed rgba(255,255,255,.1);padding-top:13px}
+.rv-form b{font-size:11px;color:#D6BE7A;font-weight:600}
+.rv-stars{display:flex;gap:5px;direction:ltr}
+.rv-stars button{font-size:21px;color:#4a4a44;transition:.2s;line-height:1}
+.rv-stars button.lit{color:#D6BE7A;transform:scale(1.08)}
+.rv-form input,.rv-form textarea{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:10px 13px;color:#FAFAFA;font:400 11.5px 'IBM Plex Sans Arabic',sans-serif;outline:none;resize:vertical}
+.rv-form input:focus,.rv-form textarea:focus{border-color:#B89146}
+.rv-form button.btn-gold{padding:11px;font-size:11.5px}
+.rv-form small{font-size:9.5px;color:#9A9A9A}
+
+/* استطلاع المعالج داخل الرسائل */
+.ai-q{display:grid;gap:6px;margin-top:9px}
+.ai-q .q-l{font-size:9.5px;color:#9A9A9A}
+.ai-slider{width:100%;accent-color:#B89146;margin-top:6px}
+.ai-slider-out{display:flex;justify-content:space-between;font-size:9px;color:#9A9A9A}
+
+/* التنبيهات */
+.ai-notif-card{display:flex;gap:10px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:11px 13px;font-size:11px;line-height:1.8;animation:aiIn .4s both}
+.ai-notif-card.unread{border-color:rgba(184,145,70,.4);background:rgba(184,145,70,.07)}
+.ai-notif-card span{flex:1}
+.ai-notif-card time{font-size:8.5px;color:#8d8a80;white-space:nowrap}
+
+/* تعديلات سياق الاستوديو */
+.ai-context{display:flex;gap:7px;flex-wrap:wrap;align-self:stretch}
+.ai-context .ctx{font-size:9px;color:#9fe0a8;background:rgba(20,56,46,.4);border:1px solid rgba(46,125,50,.4);padding:5px 11px;border-radius:10px}
+
+/* الجوال */
+@media(max-width:640px){
+  .ai-fab{left:16px;bottom:16px;width:56px;height:56px;font-size:21px}
+  .ai-panel{left:0;bottom:0;width:100%;height:84dvh;border-radius:22px 22px 0 0;border-left:0;border-right:0;border-bottom:0}
+  .ai-msg{max-width:92%}
+  .ai-id span{max-width:150px}
+}
+@media(prefers-reduced-motion:reduce){
+  .ai-fab,.ai-orb::after,.ai-typing i,.ai-scan::after{animation:none!important}
+  .ai-panel,.ai-msg,.ai-card{transition-duration:.01ms!important}
+}
+
+/* إخفاء مؤقت خلف النوافذ المنبثقة */
+.ai-fab.cover{opacity:0;pointer-events:none;transform:translateY(14px) scale(.85);animation:none}
+.ai-fab{transition-property:transform,opacity,box-shadow}
+
+/* ── وصول: مؤشر تركيز ذهبي لكل عناصر خبير اللامع ── */
+.ai-fab:focus-visible,.ai-panel button:focus-visible,.ai-panel input:focus-visible,.ai-panel [tabindex]:focus-visible,.ai-chip:focus-visible{outline:2px solid #D6BE7A;outline-offset:2px;border-radius:8px}

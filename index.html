@@ -3,65 +3,208 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="أصالة اليمن — متجر الأزياء الرجالية اليمنية الأصيلة" />
-  <title>أصالة اليمن | للأزياء الرجالية</title>
+  <meta name="description" content="اللامع | AL LAMEA — دار أزياء يمنية فاخرة. أصالة يمنية بفخامة عالمية." />
+  <meta name="theme-color" content="#090909" />
+  <title>اللامع | AL LAMEA — دار أزياء يمنية فاخرة</title>
+  <link rel="manifest" href="manifest.webmanifest?v=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="اللامع" />
+  <link rel="apple-touch-icon" href="assets/allamea-logo.png" />
+  <script src="error-tracker.js?v=20260731-1"></script>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=Reem+Kufi:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=admin-entry-2" />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260731-1" />
+  <link rel="stylesheet" href="ai.css?v=20260731-1" />
 </head>
 <body>
-  <div class="announcement">شحن مجاني للطلبات فوق 350 ريال <span>✦</span> تصميم يمني أصيل، بتفاصيل تليق بك</div>
-  <header class="header" id="top">
-    <button class="menu-toggle" aria-label="فتح القائمة" aria-expanded="false"><i></i><i></i></button>
-    <a class="brand brand-logo" href="#top" aria-label="الراية للزي اليمني"><img class="brand-mark" src="assets/alaa-logo.png" alt="الراية للزي اليمني"></a>
-    <nav class="nav" aria-label="التنقل الرئيسي">
-      <a class="active" href="#top">الرئيسية</a><a href="#collection">المجموعة</a><a href="#heritage">حكاية الزي</a><a href="#contact">تواصل معنا</a>
+
+  <!-- ═══ شاشة البداية ═══ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <span class="loader-halo"></span>
+      <img class="loader-logo" src="assets/allamea-logo.png" alt="اللامع" onerror="this.classList.add('logo-missing')">
+      <span class="loader-bar"><i></i></span>
+    </div>
+  </div>
+
+  <!-- ═══ الهيدر ═══ -->
+  <header class="header" id="header">
+    <a class="brand" href="#top" aria-label="اللامع — الصفحة الرئيسية">
+      <img class="brand-logo" src="assets/allamea-logo.png" alt="اللامع — دار أزياء يمنية فاخرة" onerror="this.classList.add('logo-missing')">
+    </a>
+    <nav class="nav" id="nav" aria-label="التنقل الرئيسي">
+      <a href="#top" class="active">الرئيسية</a><a href="#collection">المجموعة</a><a href="studio.html">الاستوديو</a><a href="#heritage">الحرفة</a><a href="#packaging">التغليف</a><a href="#contact">الدار</a>
     </nav>
     <div class="header-actions">
-      <button class="icon-btn search-open" aria-label="بحث">⌕</button>
-      <button class="icon-btn bag cart-open" aria-label="سلة التسوق">♧<em>0</em></button>
+      <button class="icon-btn cart-open" aria-label="سلة التسوق">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1.2 11.2a1.6 1.6 0 0 1-1.6 1.4H8.8a1.6 1.6 0 0 1-1.6-1.4L6 8Z"/><path d="M9 10V6.5a3 3 0 0 1 6 0V10"/></svg>
+        <em class="cart-count">0</em>
+      </button>
+      <button class="menu-toggle" aria-label="فتح القائمة" aria-expanded="false"><i></i><i></i></button>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-image"></div>
-      <div class="hero-content">
-        <p class="eyebrow">مجموعة العيد ١٤٤٨ هـ</p>
-        <h1>أناقةٌ تحمل<br><i>حكاية اليمن</i></h1>
-        <p class="hero-copy">تفاصيل مستلهمة من أصالة الزي اليمني، صُنعت للرجل الذي يختار حضوره بعناية.</p>
-        <a class="btn btn-light" href="#collection">تسوّق المجموعة <span>←</span></a>
+    <!-- ═══ Hero سينمائي ═══ -->
+    <section class="hero" id="top">
+      <div class="hero-bg"><img src="assets/allamea-hero.jpg" alt="رجل يرتدي ثوب اللامع العاجي مع مشلح أسود مطرز بالذهب"></div>
+      <div class="hero-veil"></div>
+      <div class="hero-glow"></div>
+      <div class="hero-content rv">
+        <p class="eyebrow">دار أزياء يمنية فاخرة · الإصدار الأول</p>
+        <h1>أصالةٌ تُنسج<br><em>من ذهب</em></h1>
+        <p class="hero-copy">«اللامع» دارٌ تُفصّل الحاضر بلغة الأجداد: قطعٌ بعدد محدود، خامات نخبوية، وتفاصيل مطرَّزة بخيوط الذهب.</p>
+        <div class="hero-cta">
+          <a class="btn btn-gold" href="#collection"><span>اكتشف المجموعة</span></a>
+          <a class="btn btn-ghost" href="#heritage"><span>حكاية الدار</span></a>
+        </div>
       </div>
-      <div class="hero-scroll">اسحب لاكتشاف المجموعة <span></span></div>
+      <div class="hero-scroll">مرّر لاستكشاف الدار <span></span></div>
     </section>
 
-    <section class="intro" id="heritage">
-      <p class="eyebrow">تراثٌ نرتديه</p>
-      <h2>أصالةٌ تتجدد في كل تفصيلة</h2>
-      <p>نؤمن أن الزي اليمني ليس مجرد لباس، بل لغة من الفخر والهوية. لذا نعيد تقديمه بقصّات معاصرة وحرفية تستحقها المناسبات الكبيرة.</p>
-      <a class="text-link" href="#collection">اكتشف قصتنا <span>↙</span></a>
+    <!-- ═══ شريط القيم ═══ -->
+    <div class="strip" aria-hidden="true">
+      <div class="strip-track">
+        <span>خياطة يدوية</span><i></i><span>خامات نخبوية</span><i></i><span>تطريز بخيوط ذهبية</span><i></i><span>إصدارات محدودة</span><i></i><span>صُنع بفخر في اليمن</span><i></i>
+        <span>خياطة يدوية</span><i></i><span>خامات نخبوية</span><i></i><span>تطريز بخيوط ذهبية</span><i></i><span>إصدارات محدودة</span><i></i><span>صُنع بفخر في اليمن</span><i></i>
+      </div>
+    </div>
+
+    <!-- ═══ المجموعة ═══ -->
+    <section class="section" id="collection">
+      <header class="section-head rv">
+        <p class="eyebrow">المجموعة الأولى</p>
+        <h2>مختارات <em>الدار</em></h2>
+        <p class="section-sub">خمس قطع مؤسِّسة، بإصدارٍ محدود لن يتكرر.</p>
+      </header>
+      <div class="products" id="products" aria-live="polite"></div>
     </section>
 
-    <section class="collection" id="collection">
-      <div class="section-head"><div><p class="eyebrow">مختاراتنا</p><h2>الأكثر تميّزاً</h2></div><a class="text-link" href="#all">عرض كل المنتجات <span>←</span></a></div>
-      <div class="category-tabs"><button class="selected" data-filter="all">الكل</button><button data-filter="thobe">الثياب</button><button data-filter="vest">الصدريات</button><button data-filter="shawl">الشالات</button><button data-filter="accessory">الإكسسوارات</button></div>
-      <div class="products" id="products">
-        <article class="product product-1" data-category="thobe" data-name="ثوب صنعاني فاخر" data-price="395"><div class="product-visual"><span class="tag">الأكثر طلباً</span><button class="heart" aria-label="إضافة للمفضلة">♡</button><div class="garment thobe"></div></div><div class="product-info"><div><h3>ثوب صنعاني فاخر</h3><p>قطن سويسري · أبيض عاجي</p></div><b>٣٩٥ ر.س</b></div><button class="add-cart">أضف إلى السلة <span>←</span></button></article>
-        <article class="product product-2" data-category="vest" data-name="صديري تراثي مطرّز" data-price="425"><div class="product-visual"><button class="heart" aria-label="إضافة للمفضلة">♡</button><div class="garment waistcoat"></div></div><div class="product-info"><div><h3>صديري تراثي مطرّز</h3><p>كتان طبيعي · رملي</p></div><b>٤٢٥ ر.س</b></div><button class="add-cart">أضف إلى السلة <span>←</span></button></article>
-        <article class="product product-3" data-category="shawl" data-name="شال يمني يدوي" data-price="275"><div class="product-visual"><button class="heart" aria-label="إضافة للمفضلة">♡</button><div class="garment shawl"></div></div><div class="product-info"><div><h3>شال يمني يدوي</h3><p>نسيج يدوي · أخضر زيتوني</p></div><b>٢٧٥ ر.س</b></div><button class="add-cart">أضف إلى السلة <span>←</span></button></article>
-      </div><div class="all-products" id="all"><p>وصلت إلى نهاية المختارات — قريباً قطع أكثر من تراثنا.</p></div>
+    <!-- ═══ الحرفة ═══ -->
+    <section class="heritage" id="heritage">
+      <div class="heritage-media rv">
+        <figure class="parallax-box"><img class="parallax-img" src="assets/heritage.jpg" alt="يدا حرفي يمني يطرّزان بخيوط ذهبية"></figure>
+      </div>
+      <div class="heritage-copy rv">
+        <p class="eyebrow">حكاية الدار</p>
+        <h2>من يدِ الحرفي<br>إلى اسمٍ <em>يلمع</em></h2>
+        <p>في أزقّة صنعاء القديمة، تعلّم حرفيونا أن القطعة الفاخرة لا تُستعجل. نعيد اليوم تقديم الزي اليمني بقصّات معاصرة وخامات عالمية، دون أن نُفرّط بروحه الأولى.</p>
+        <ul class="heritage-points">
+          <li>حرفيون من صنعاء القديمة</li>
+          <li>٢٤ ساعة تطريزاً للقطعة الواحدة</li>
+          <li>خيوط معدنية مطلية بالذهب</li>
+          <li>زخارف مستوحاة من هندسة شعار الدار</li>
+        </ul>
+        <a class="text-link" href="#collection"><span>اقتنِ قطعة من الحكاية</span></a>
+      </div>
     </section>
 
-    <section class="craft">
-      <div class="craft-art"><div class="sun"></div><div class="arch arch-one"></div><div class="arch arch-two"></div><p>صنع بحب<br>في اليمن</p></div>
-      <div class="craft-copy"><p class="eyebrow">رحلة الحرفة</p><h2>من يد الحرفي<br>إلى حضورك</h2><p>نتعاون مع حرفيين يمنيين لإحياء تقنيات التطريز والنسيج العريقة، وتحويلها إلى قطع فريدة تناسب يومك ومناسباتك.</p><a class="btn btn-dark" href="#heritage">عن الحرفة <span>←</span></a></div>
+    <!-- ═══ منظومة التغليف ═══ -->
+    <section class="section packaging" id="packaging">
+      <header class="section-head rv">
+        <p class="eyebrow">منظومة التغليف</p>
+        <h2>يصلك كما يليق <em>باللامع</em></h2>
+        <p class="section-sub">تجربة فتح صندوق بدأنا تصميمها قبل تصميم القطعة نفسها.</p>
+      </header>
+      <div class="pack-grid rv">
+        <div class="pack-stage" aria-hidden="true">
+          <div class="pack-box">
+            <div class="pack-lid">
+              <img src="assets/allamea-logo.png" alt="" onerror="this.classList.add('logo-missing')">
+            </div>
+            <div class="pack-ribbon"></div>
+          </div>
+          <figure class="pack-card">
+            <img src="assets/allamea-logo-mono.png" alt="" onerror="this.classList.add('logo-missing')">
+            <figcaption><b>بطاقة الأصالة</b><span>AL LAMEA · <i class="num">№ 0142</i></span></figcaption>
+          </figure>
+          <figure class="pack-bag">
+            <span class="pack-bag-handles"></span>
+            <img src="assets/allamea-logo-mono.png" alt="" onerror="this.classList.add('logo-missing')">
+          </figure>
+        </div>
+        <ul class="pack-list">
+          <li><b>صندوق أسود صلب</b><span>بملمس مخملي وإغلاق مغناطيسي</span></li>
+          <li><b>شعار ذهبي محفور</b><span>يُطبع على الغطاء بحرارة الفويل</span></li>
+          <li><b>بطاقة أصالة</b><span>برقم تسلسلي لكل قطعة</span></li>
+          <li><b>بطاقة شكر</b><span>بخط اليد مع كل طلب</span></li>
+          <li><b>ملصق قماشي داخلي</b><span>يحمل اسم الدار ورقم القطعة</span></li>
+          <li><b>ختم أصالة ذهبي</b><span>يُضغط على ورق التغليف الحريري</span></li>
+        </ul>
+      </div>
     </section>
 
-    <section class="newsletter" id="contact"><p class="eyebrow">ابقَ على مقربة</p><h2>إشراقة جديدة، تصلك أولاً</h2><form><input aria-label="بريدك الإلكتروني" type="email" placeholder="أدخل بريدك الإلكتروني" required><button type="submit">اشترك <span>←</span></button></form><small>بالاشتراك، أنت توافق على سياسة الخصوصية الخاصة بنا.</small></section>
+    <!-- ═══ النشرة ═══ -->
+    <section class="newsletter" id="contact">
+      <div class="newsletter-box rv">
+        <p class="eyebrow">قائمة الدار</p>
+        <h2>كن أول من <em>يعرف</em></h2>
+        <p class="section-sub">الإصدارات المحدودة تُطرح على قائمتنا الخاصة أولاً.</p>
+        <form id="newsletter-form" novalidate>
+          <input type="email" name="email" placeholder="بريدك الإلكتروني" required aria-label="بريدك الإلكتروني">
+          <button type="submit" class="btn btn-gold"><span>اشترك</span></button>
+        </form>
+        <small>بالاشتراك، أنت توافق على سياسة خصوصية الدار.</small>
+      </div>
+    </section>
   </main>
-  <div class="overlay"></div><aside class="cart-drawer" aria-label="سلة التسوق"><div class="drawer-head"><h2>سلة التسوق</h2><button class="drawer-close">×</button></div><div class="cart-items"><div class="empty-cart"><span>♧</span><p>سلتك فارغة حالياً</p><button class="btn btn-dark drawer-close">ابدأ التسوق</button></div></div><div class="cart-bottom"><div><span>المجموع</span><b class="cart-total">٠ ر.س</b></div><button class="checkout">إتمام الطلب <span>←</span></button></div></aside><div class="search-panel"><button class="search-close">×</button><label>ابحث في أصالة اليمن<input type="search" placeholder="مثال: ثوب، شال، صديري"></label><div class="search-results"></div></div>
-  <footer><a class="brand brand-logo" href="#top" aria-label="الراية للزي اليمني"><img class="brand-mark" src="assets/alaa-logo.png" alt="الراية للزي اليمني"></a><p>الأزياء الرجالية اليمنية، بحلّةٍ تليق بالأصالة.</p><div class="footer-links"><a href="#top">انستغرام</a><a href="#top">واتساب</a><a href="#top">سياسة الاستبدال</a></div><small>© <a class="admin-year" href="portal.html" aria-label="بوابة الإدارة">٢٠٢٦</a> أصالة اليمن. جميع الحقوق محفوظة.</small></footer>
-  <script src="script.js"></script>
+
+  <!-- ═══ الفوتر ═══ -->
+  <footer>
+    <img class="footer-logo" src="assets/allamea-logo-mono.png" alt="اللامع — شعار أحادي" onerror="this.classList.add('logo-missing')">
+    <p class="footer-blurb">اللامع — دار أزياء يمنية فاخرة تجمع بين الأصالة والفخامة العالمية.<br>قطعٌ محدودة، بحرفية تليق بك.</p>
+    <div class="footer-links"><a href="#top">الرئيسية</a><i></i><a href="#collection">المجموعة</a><i></i><a href="studio.html">الاستوديو</a><i></i><a href="#heritage">الحرفة</a><i></i><a href="portal.html">بوابة الفريق</a></div>
+    <small>© <span class="num">2026</span> اللامع | AL LAMEA — جميع الحقوق محفوظة.</small>
+  </footer>
+
+  <!-- ═══ نافذة المنتج ═══ -->
+  <div class="p-modal" id="p-modal" role="dialog" aria-modal="true" aria-label="تفاصيل المنتج">
+    <div class="p-backdrop" data-close></div>
+    <article class="p-sheet" id="p-sheet"></article>
+  </div>
+
+  <!-- ═══ سلة التسوق ═══ -->
+  <div class="overlay" id="overlay" data-close></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="سلة التسوق">
+    <header class="drawer-head">
+      <h3>سلة التسوق</h3>
+      <button class="drawer-close icon-x" data-close aria-label="إغلاق">×</button>
+    </header>
+    <div class="cart-items" id="cart-items"></div>
+    <footer class="cart-bottom" id="cart-bottom"></footer>
+  </aside>
+
+  <!-- ═══ الدفع ═══ -->
+  <div class="checkout" id="checkout" role="dialog" aria-modal="true" aria-label="إتمام الطلب">
+    <div class="p-backdrop" data-close></div>
+    <article class="checkout-sheet" id="checkout-sheet"></article>
+  </div>
+
+  <!-- ═══ نجاح الطلب ═══ -->
+  <div class="success" id="success" role="dialog" aria-modal="true" aria-label="تم استلام الطلب">
+    <div class="success-inner">
+      <span class="success-ring"></span>
+      <img class="success-logo" src="assets/allamea-logo.png" alt="اللامع" onerror="this.classList.add('logo-missing')">
+      <h2>تم استلام طلبك</h2>
+      <p class="success-no">رقم الطلب <b class="num" id="order-no">LM-000000</b></p>
+      <p class="success-note">سيتواصل معك مستشار الدار خلال <span class="num">24</span> ساعة لتأكيد التفاصيل.</p>
+      <button class="btn btn-gold" id="success-back"><span>العودة إلى المتجر</span></button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- مفاتيح المزودين الخارجيين: ضع GA4/Meta/TikTok/Clarity هنا دون تعديل الكود -->
+  <script>window.ALAMEA_ANALYTICS_CONFIG = { ga4: '', meta: '', tiktok: '', clarity: '' };</script>
+  <script src="analytics.js?v=20260731-2"></script>
+  <script src="catalog.js?v=1"></script>
+  <script src="script.js?v=20260731-3"></script>
+  <script src="ai.js?v=20260731-2" defer></script>
+  <script src="pwa.js?v=20260731-1" defer></script>
 </body>
 </html>
