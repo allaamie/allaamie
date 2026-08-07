@@ -1,0 +1,112 @@
+/* ═══════════════════════════════════════════════════════════
+   AL LAMEA | اللامع — نظام التصميم المركزي (Design Tokens)
+   ═══════════════════════════════════════════════════════════
+   هذا الملف هو نقطة الحقيقة الواحدة لتغيير:
+   • الخلفيات (Theme)
+   • الخطوط (Typography)
+   • الشعار (Brand)
+   غيّر قيمة المتغير هنا → ينعكس على كامل المشروع.
+   يُحمَّل أولاً قبل باقي ملفات CSS.
+   ═══════════════════════════════════════════════════════════ */
+
+:root{
+  /* ══════ الخلفية واللوحة (Theme) — افتراضي: فاتح أبيض ══════ */
+  --bg:#FFFFFF;            /* الخلفية الأساسية (بيضاء) */
+  --bg-soft:#FAF9F5;       /* خلفية ثانوية ناعمة جداً (إيفوار) */
+  --bg-2:#F5F2EA;          /* خلفية الأوراق/البطاقات (إيفوار دافئ) */
+  --bg-3:#EAE5D6;          /* خلفية أعمق للأقسام */
+  --panel:#FFFFFF;         /* سطح البطاقات */
+  --card:#FFFFFF;          /* بطاقات (admin) */
+  --veil:rgba(29,26,20,.035);  /* تظليل زجاجي فاتح */
+  --hair:rgba(29,26,20,.06);   /* فواصل فاتحة */
+  --side-bg:rgba(255,255,255,.92);
+
+  /* ══════ الألوان الذهبية والإبراز (Brand) ══════ */
+  --gold:#B89146;
+  --gold-l:#D9BF74;
+  --gold-d:#8A6A2E;
+  --bronze:#8A6A2E;
+  --ivory:#F6F3EC;
+  --green:#14382E;
+  --green-t:#1E6B26;
+
+  /* ══════ النصوص (Theme-aware) ══════ */
+  --text:#1D1A14;          /* نص أساسي داكن على أبيض */
+  --text-2:#5A5448;        /* نص ثانوي */
+  --muted:#8A8474;         /* نص مكتوم */
+  --muted-2:#6C675A;
+  --muted-3:#A19A8A;
+  --line:rgba(29,26,20,.10);
+  --line-soft:rgba(29,26,20,.06);
+  --line-2:rgba(29,26,20,.18);
+  --selection:#B89146;
+  --selection-text:#FFFFFF;
+
+  /* ══════ حالات (success/warn/danger) ══════ */
+  --ok:#1E6B26;
+  --ok-t:#1E6B26;
+  --warn:#9C6E0B;
+  --warn-t:#9C6E0B;
+  --danger:#A52A2A;
+  --danger-t:#A52A2A;
+
+  /* ══════ الخطوط (Typography) — نظام موحد عالمياً ══════
+     غيّر هنا فقط لتغيير الخط في كل الموقع.
+     المصادر: Google Fonts (IBM Plex Sans Arabic للعربي، Amiri للعناوين، Inter للأرقام).
+  */
+  --font:'IBM Plex Sans Arabic','Cairo','Tajawal',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --font-display:'Amiri','Reem Kufi','Cairo',serif;
+  --font-num:'Inter','IBM Plex Sans Arabic',sans-serif;
+  /* أسماء مختصرة للتوافق مع الكود الحالي (styles.css, admin.css...) */
+  --display:var(--font-display);
+  --num:var(--font-num);
+
+  --fz-eyebrow:11px;
+  --fz-body:14px;
+  --fz-h1:clamp(40px,6vw,72px);
+  --fz-h2:clamp(30px,4vw,52px);
+
+  /* ══════ الشعار (Brand Logo) — نظام مركزي ══════
+     غيّر قيمة --logo-url هنا فقط لتحديث الشعار في كل الموقع.
+     الافتراضي: assets/allamea-logo.png (الاسم الرسمي للمشروع)
+     إذا أردت شعاراً بلون واحد (mono) للفوتر: --logo-mono-url
+     إذا أردت شعاراً دائرياً (favicon): --logo-favicon-url
+  */
+  --logo-url:url('assets/allamea-logo.png');
+  --logo-mono-url:url('assets/allamea-logo-mono.png');
+  --logo-favicon-url:url('assets/favicon.png');
+  --logo-fallback-text:'اللامع | AL LAMEA';
+  --logo-height-header:56px;
+  --logo-height-footer:78px;
+  --logo-height-loader:120px;
+
+  /* ══════ الزوايا والحركة ══════ */
+  --cut:12px;                          /* شطبة الزاوية */
+  --r:18px;                            /* نصف قطر البطاقات */
+  --ease:cubic-bezier(.16,1,.3,1);     /* منحنى الحركة */
+  --shadow:0 24px 60px -20px rgba(95,79,45,.18);
+  color-scheme:light;
+}
+
+/* ── خلفيات مساعدة عامة ─────────────────────────────── */
+.bg-soft{background:var(--bg-soft)}
+.bg-2{background:var(--bg-2)}
+.bg-3{background:var(--bg-3)}
+.text-main{color:var(--text)}
+.text-muted{color:var(--muted)}
+
+/* ── ضبط مظهر عناصر النظام (scrollbar، التحديد، إلخ) ── */
+::selection{background:var(--selection);color:var(--selection-text)}
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-thumb{background:rgba(29,26,20,.18);border-radius:9px}
+::-webkit-scrollbar-track{background:transparent}
+
+/* ── فئات جاهزة لتطبيق الشعار من المتغير ───────────── */
+.brand-logo-img{
+  content:var(--logo-url);
+  display:inline-block;
+  background-image:var(--logo-url);
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center;
+}
