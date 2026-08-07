@@ -6,14 +6,16 @@
    · تحديثات تلقائية بنظام إصدارات الكاش
    ══════════════════════════════════════════════════════════ */
 'use strict';
-const VERSION = 'allamea-v20260731-3';
+const VERSION = 'allamea-v20260807-1';
 const PRECACHE = [
-  './', 'index.html', 'studio.html',
-  'styles.css', 'studio.css', 'ai.css',
-  'catalog.js', 'script.js', 'studio.js', 'analytics.js', 'ai.js', 'error-tracker.js', 'pwa.js',
+  './', 'index.html', 'studio.html', 'admin.html', 'portal.html', 'dashboard.html',
+  'theme.css', 'styles.css', 'studio.css', 'ai.css', 'admin.css', 'portal.css', 'dashboard.css',
+  'polyfills.js', 'catalog.js', 'script.js', 'studio.js', 'analytics.js', 'ai.js', 'admin.js', 'ai-admin.js', 'bi.js', 'error-tracker.js', 'pwa.js', 'portal.js', 'dashboard.js',
   'manifest.webmanifest',
-  'assets/allamea-hero.jpg', 'assets/heritage.jpg', 'assets/detail-cotton.jpg', 'assets/detail-gold.jpg',
-  'assets/p-thobe.jpg', 'assets/p-mishlah.jpg', 'assets/p-vest.jpg', 'assets/p-shawl.jpg', 'assets/p-accessory.jpg'
+  'assets/allamea-hero.jpg', 'assets/heritage.jpg', 'assets/detail-cotton.jpg', 'assets/detail-gold.jpg', 'assets/admin-login-textile.jpg',
+  'assets/p-thobe.jpg', 'assets/p-mishlah.jpg', 'assets/p-vest.jpg', 'assets/p-shawl.jpg', 'assets/p-accessory.jpg',
+  'assets/allamea-logo.png', 'assets/allamea-logo-mono.png', 'assets/allamea-logo.svg',
+  'assets/favicon.ico', 'assets/favicon.png', 'assets/favicon-192.png', 'assets/favicon-512.png'
 ];
 const MAX_RUNTIME = 90;
 const BYPASS = /supabase\.co|googleapis|gstatic|unpkg|leaflet|ipapi|analytics|gtag|facebook|tiktok/i;
