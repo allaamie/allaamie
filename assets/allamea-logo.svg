@@ -1,173 +1,161 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="اللامع — AL LAMEA">
   <defs>
-    <!-- تدرج ذهبي: فاتح فوق، داكن تحت -->
+    <!-- تدرج ذهبي: أفتح فوق، أعمق تحت -->
     <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#F2D89B"/>
-      <stop offset=".25" stop-color="#E2C078"/>
-      <stop offset=".55" stop-color="#C7A055"/>
-      <stop offset=".8" stop-color="#A48437"/>
-      <stop offset="1" stop-color="#7E6326"/>
+      <stop offset="0" stop-color="#F5DCA0"/>
+      <stop offset=".25" stop-color="#E5C078"/>
+      <stop offset=".55" stop-color="#C9A058"/>
+      <stop offset=".8" stop-color="#A48538"/>
+      <stop offset="1" stop-color="#7E6324"/>
     </linearGradient>
-    <linearGradient id="goldThin" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#7E6326"/>
-      <stop offset=".5" stop-color="#F2D89B"/>
-      <stop offset="1" stop-color="#7E6326"/>
+    <linearGradient id="goldSoft" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#9A7A2E"/>
+      <stop offset=".5" stop-color="#F5DCA0"/>
+      <stop offset="1" stop-color="#9A7A2E"/>
     </linearGradient>
-    <!-- جلد أسود بتدرج عمودي (شبه مطفي) -->
-    <linearGradient id="leather" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#1F160C"/>
-      <stop offset=".5" stop-color="#15100A"/>
+    <!-- جلد أسود محبب (نقاط) -->
+    <radialGradient id="leather" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#221810"/>
+      <stop offset=".5" stop-color="#161008"/>
       <stop offset="1" stop-color="#080502"/>
-    </linearGradient>
-    <linearGradient id="leatherH" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#080502"/>
-      <stop offset=".5" stop-color="#1F160C"/>
-      <stop offset="1" stop-color="#080502"/>
-    </linearGradient>
-    <!-- نقش خطوط عمودية محبوكة (تطريز يدوي) -->
-    <pattern id="stitch" x="0" y="0" width="10" height="20" patternUnits="userSpaceOnUse">
-      <rect width="10" height="20" fill="url(#leather)"/>
-      <line x1="5" y1="0" x2="5" y2="20" stroke="#3A2A14" stroke-width=".7" opacity=".55"/>
-      <line x1="0" y1="2" x2="10" y2="2" stroke="#050302" stroke-width=".5" opacity=".4"/>
-      <line x1="0" y1="10" x2="10" y2="10" stroke="#050302" stroke-width=".5" opacity=".4"/>
-      <line x1="0" y1="18" x2="10" y2="18" stroke="#050302" stroke-width=".5" opacity=".4"/>
+    </radialGradient>
+    <!-- نقش جلد محبب بنقاط (grain) -->
+    <pattern id="grain" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+      <rect width="6" height="6" fill="url(#leather)"/>
+      <circle cx="1" cy="1" r=".4" fill="#3A2A14" opacity=".7"/>
+      <circle cx="4" cy="2" r=".3" fill="#2A1F12" opacity=".6"/>
+      <circle cx="2" cy="4" r=".35" fill="#3A2A14" opacity=".55"/>
+      <circle cx="5" cy="5" r=".3" fill="#2A1F12" opacity=".5"/>
+      <circle cx="3" cy="3" r=".25" fill="#1A1308" opacity=".4"/>
     </pattern>
-    <!-- نقش ماسي (للام) - أكبر وأقل كثافة -->
-    <pattern id="diamond" x="0" y="0" width="32" height="42" patternUnits="userSpaceOnUse">
-      <rect width="32" height="42" fill="url(#leatherH)"/>
-      <g transform="translate(16 21)">
-        <path d="M-9 -13 L9 -13 L9 13 L-9 13 Z" fill="none" stroke="url(#gold)" stroke-width="1" opacity=".9"/>
-        <path d="M-4.5 -6.5 L4.5 -6.5 L4.5 6.5 L-4.5 6.5 Z" fill="none" stroke="url(#gold)" stroke-width=".7" opacity=".75"/>
-        <circle r="1.1" fill="url(#gold)"/>
+    <!-- نقش ماسي لللام (ذهبي كثيف) -->
+    <pattern id="diamond" x="0" y="0" width="30" height="44" patternUnits="userSpaceOnUse">
+      <rect width="30" height="44" fill="url(#grain)"/>
+      <g transform="translate(15 22)">
+        <path d="M-8 -12 L8 -12 L8 12 L-8 12 Z" fill="none" stroke="url(#gold)" stroke-width="1.1" opacity=".95"/>
+        <path d="M-4 -6 L4 -6 L4 6 L-4 6 Z" fill="none" stroke="url(#gold)" stroke-width=".7" opacity=".8"/>
+        <circle r="1.2" fill="url(#gold)"/>
       </g>
     </pattern>
-    <!-- نمط محبوك أفقي (للألف) - خطوط متموجة -->
-    <pattern id="braid" x="0" y="0" width="20" height="14" patternUnits="userSpaceOnUse">
-      <rect width="20" height="14" fill="url(#leather)"/>
-      <path d="M0 4 Q5 0 10 4 Q15 0 20 4" stroke="url(#gold)" stroke-width=".8" fill="none" opacity=".75"/>
-      <path d="M0 10 Q5 14 10 10 Q15 14 20 10" stroke="url(#gold)" stroke-width=".8" fill="none" opacity=".75"/>
+    <!-- نمط محبوك أفقي متموج (للألف) -->
+    <pattern id="wave" x="0" y="0" width="22" height="14" patternUnits="userSpaceOnUse">
+      <rect width="22" height="14" fill="url(#grain)"/>
+      <path d="M0 4 Q5.5 0 11 4 Q16.5 8 22 4" stroke="url(#gold)" stroke-width="1.1" fill="none" opacity=".85"/>
+      <path d="M0 10 Q5.5 14 11 10 Q16.5 6 22 10" stroke="url(#gold)" stroke-width="1.1" fill="none" opacity=".85"/>
     </pattern>
-    <!-- تأثير ثلاثي الأبعاد (تظليل يمين) -->
-    <linearGradient id="rightShade" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#000" stop-opacity="0"/>
-      <stop offset=".85" stop-color="#000" stop-opacity="0"/>
-      <stop offset="1" stop-color="#000" stop-opacity=".18"/>
+    <!-- نقش تظليل خفيف على حرف العين (3 فتحات) -->
+    <linearGradient id="darkGrain" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1A1208"/>
+      <stop offset="1" stop-color="#080502"/>
     </linearGradient>
-    <!-- توهج خفيف للعمق -->
-    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feGaussianBlur stdDeviation="2"/>
+    <!-- توهج خلفي للإطار -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
   </defs>
 
-  <!-- ═══ خلفية قماش إيفور ═══ -->
-  <rect width="1024" height="1024" fill="#F2EDDF"/>
-  <rect width="1024" height="1024" fill="url(#rightShade)" opacity=".4"/>
+  <!-- ═══ خلفية سوداء ═══ -->
+  <rect width="1024" height="1024" fill="#0A0604"/>
+  <!-- تدرج لوني خفيف في المنتصف لإحساس العمق -->
+  <radialGradient id="bgGrad" cx="50%" cy="50%" r="65%">
+    <stop offset="0" stop-color="#1A1208" stop-opacity=".5"/>
+    <stop offset="1" stop-color="#0A0604" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="1024" height="1024" fill="url(#bgGrad)"/>
 
-  <!-- ═══ الشعار العربي من اليسار لليمين: ع - م - ل - ا ═══ -->
-  <!-- الترتيب: العين (اليسار)، الميم، اللام، الألف (اليمين) -->
-  <g transform="translate(512 480)">
+  <!-- ═══ الشعار من اليسار لليمين: ع - م - ل - ا ═══ -->
+  <g transform="translate(512 512)">
 
     <!-- ════════════ حرف العين (اليسار، رقم 4) ════════════ -->
     <g transform="translate(-340 0)">
-      <!-- الإطار الذهبي: حرف العين كحرف له ذيل سفلي ينحني لليسار -->
-      <path d="M -100 -310 L 100 -310 L 100 -100 L 60 -50 L 100 30 L 100 240 Q 80 250 50 240 L -50 250 Q -90 270 -110 310 L -130 300 Q -100 260 -55 245 L -50 220 L -100 180 L -100 50 L -60 0 L -100 -50 Z"
-            fill="url(#gold)" stroke="url(#gold)" stroke-width="3" stroke-linejoin="miter"/>
-      <!-- تعبئة جلد أسود مع تطريز -->
-      <path d="M -82 -292 L 82 -292 L 82 -110 L 48 -50 L 82 20 L 82 230 Q 60 240 30 230 L -45 240 Q -78 260 -90 285 L -100 280 Q -75 245 -45 230 L -50 215 L -82 175 L -82 50 L -48 0 L -82 -50 Z"
-            fill="url(#stitch)"/>
-      <!-- خطوط تطريز يدوية -->
-      <g stroke="#0A0604" stroke-width="1" opacity=".7">
-        <line x1="-50" y1="-285" x2="-50" y2="225"/>
-        <line x1="-25" y1="-285" x2="-25" y2="225"/>
-        <line x1="0" y1="-285" x2="0" y2="225"/>
-        <line x1="25" y1="-285" x2="25" y2="225"/>
-        <line x1="50" y1="-285" x2="50" y2="225"/>
-      </g>
+      <!-- الإطار الذهبي الخارجي: شكل العين مع ذيل سفلي -->
+      <path d="M -95 -310 L 95 -310 L 95 -100 L 55 -50 L 95 20 L 95 250 L 65 270 L 30 280 L 0 290 L -25 305 L -50 310 Q -90 320 -125 305 L -120 285 Q -90 290 -50 280 L -25 265 L 0 250 L 25 235 L -55 195 L -55 175 L -95 130 L -95 50 L -55 0 L -95 -50 Z"
+            fill="url(#gold)" stroke="url(#gold)" stroke-width="2" stroke-linejoin="round"/>
+      <!-- تعبئة بجلد محبب -->
+      <path d="M -82 -295 L 82 -295 L 82 -100 L 50 -50 L 82 10 L 82 240 L 60 258 L 28 268 L 0 278 L -22 292 L -45 296 Q -78 300 -100 290 L -82 270 L -50 268 L -28 256 L -8 245 L 12 235 L -45 195 L -45 175 L -82 130 L -82 50 L -50 0 L -82 -50 Z"
+            fill="url(#grain)"/>
       <!-- إطار داخلي رقيق -->
-      <path d="M -82 -292 L 82 -292 L 82 -110 L 48 -50 L 82 20 L 82 230 Q 60 240 30 230 L -45 240 Q -78 260 -90 285 L -100 280 Q -75 245 -45 230 L -50 215 L -82 175 L -82 50 L -48 0 L -82 -50 Z"
-            fill="none" stroke="url(#gold)" stroke-width="1" opacity=".55"/>
+      <path d="M -82 -295 L 82 -295 L 82 -100 L 50 -50 L 82 10 L 82 240 L 60 258 L 28 268 L 0 278 L -22 292 L -45 296 Q -78 300 -100 290"
+            fill="none" stroke="url(#gold)" stroke-width="1" opacity=".5"/>
+      <!-- الفتحات الداخلية لحرف العين (3 فتحات منقطة) -->
+      <ellipse cx="-25" cy="-80" rx="14" ry="9" fill="url(#gold)" opacity=".3"/>
+      <ellipse cx="25" cy="-80" rx="14" ry="9" fill="url(#gold)" opacity=".3"/>
+      <ellipse cx="0" cy="0" rx="18" ry="12" fill="url(#gold)" opacity=".25"/>
+      <ellipse cx="0" cy="80" rx="14" ry="9" fill="url(#gold)" opacity=".3"/>
+      <ellipse cx="-25" cy="160" rx="12" ry="8" fill="url(#gold)" opacity=".25"/>
+      <ellipse cx="25" cy="160" rx="12" ry="8" fill="url(#gold)" opacity=".25"/>
+      <!-- خط فاصل وسط العمود -->
+      <line x1="0" y1="-290" x2="0" y2="270" stroke="url(#goldSoft)" stroke-width="1" opacity=".3"/>
     </g>
 
     <!-- ════════════ حرف الميم (وسط-يسار، رقم 3) ════════════ -->
     <g transform="translate(-100 0)">
-      <!-- الإطار الذهبي: شكل الميم مع نتوءات -->
-      <path d="M -125 -310 L 125 -310 L 125 100 L 85 150 L 125 200 L 125 280 L -125 280 L -125 200 L -85 150 L -125 100 Z"
-            fill="url(#gold)" stroke="url(#gold)" stroke-width="3" stroke-linejoin="miter"/>
-      <!-- حلقة الميم السفلية -->
-      <ellipse cx="0" cy="225" rx="82" ry="55" fill="url(#gold)"/>
-      <ellipse cx="0" cy="225" rx="64" ry="40" fill="url(#leather)"/>
-      <!-- تعبئة الجزء العلوي -->
-      <path d="M -107 -294 L 107 -294 L 107 100 L 75 150 L 107 200 L 107 252 Q 50 232 0 222 Q -50 232 -107 252 L -107 200 L -75 150 L -107 100 Z"
-            fill="url(#stitch)"/>
-      <!-- خطوط تطريز -->
-      <g stroke="#0A0604" stroke-width="1" opacity=".7">
-        <line x1="-65" y1="-290" x2="-65" y2="195"/>
-        <line x1="-32" y1="-290" x2="-32" y2="195"/>
-        <line x1="0" y1="-290" x2="0" y2="195"/>
-        <line x1="32" y1="-290" x2="32" y2="195"/>
-        <line x1="65" y1="-290" x2="65" y2="195"/>
-      </g>
+      <!-- الإطار الذهبي: شكل الميم -->
+      <path d="M -120 -310 L 120 -310 L 120 100 L 80 150 L 120 200 L 120 270 L -120 270 L -120 200 L -80 150 L -120 100 Z"
+            fill="url(#gold)" stroke="url(#gold)" stroke-width="2" stroke-linejoin="round"/>
+      <!-- تعبئة بجلد محبب -->
+      <path d="M -107 -295 L 107 -295 L 107 95 L 75 150 L 107 200 L 107 252 L -107 252 L -107 200 L -75 150 L -107 95 Z"
+            fill="url(#grain)"/>
       <!-- إطار داخلي رقيق -->
-      <path d="M -107 -294 L 107 -294 L 107 100 L 75 150 L 107 200 L 107 252 Q 50 232 0 222 Q -50 232 -107 252 L -107 200 L -75 150 L -107 100 Z"
-            fill="none" stroke="url(#gold)" stroke-width="1" opacity=".55"/>
-      <!-- نقطة وسطى في حلقة الميم -->
-      <circle cx="0" cy="225" r="4.5" fill="url(#gold)"/>
-      <!-- نتوء صغير على الميم (قوس علوي أيسر) -->
-      <path d="M -85 150 Q -100 130 -85 110 Q -70 130 -85 150 Z" fill="url(#gold)"/>
-      <circle cx="-85" cy="135" r="6" fill="url(#gold)"/>
-      <circle cx="-85" cy="135" r="3.5" fill="url(#leather)"/>
+      <path d="M -107 -295 L 107 -295 L 107 95 L 75 150 L 107 200 L 107 252 L -107 252 L -107 200 L -75 150 L -107 95 Z"
+            fill="none" stroke="url(#gold)" stroke-width="1" opacity=".5"/>
+      <!-- فتحة وسطى في الميم (تشبه العين) -->
+      <ellipse cx="0" cy="-80" rx="20" ry="14" fill="url(#gold)" opacity=".3"/>
+      <ellipse cx="0" cy="0" rx="22" ry="16" fill="url(#gold)" opacity=".25"/>
+      <ellipse cx="0" cy="80" rx="20" ry="14" fill="url(#gold)" opacity=".3"/>
+      <!-- نتوء صغير (شكل قوس/دال) في الميم -->
+      <path d="M -75 150 Q -95 130 -75 110 Q -55 130 -75 150 Z" fill="url(#gold)"/>
+      <circle cx="-75" cy="135" r="5" fill="url(#grain)" stroke="url(#gold)" stroke-width="1"/>
+      <!-- ذيل سفلي منحني للميم -->
+      <path d="M 0 252 Q 30 280 60 270 L 55 285 Q 25 295 0 290 Q -25 295 -55 285 L -60 270 Q -30 280 0 252 Z" fill="url(#gold)"/>
+      <path d="M 0 260 Q 25 280 50 270 L 48 278 Q 25 285 0 282 Q -25 285 -48 278 L -50 270 Q -25 280 0 260 Z" fill="url(#grain)"/>
     </g>
 
     <!-- ════════════ حرف اللام (وسط-يمين، رقم 2) ════════════ -->
     <g transform="translate(135 0)">
-      <!-- الإطار الذهبي: حرف اللام مع ذيل ينزل لأسفل اليسار -->
-      <path d="M -90 -310 L 90 -310 L 90 100 L 50 160 L 90 220 Q 110 280 60 325 L -30 305 Q -82 280 -90 230 L -90 100 L -52 50 L -90 0 Z"
-            fill="url(#gold)" stroke="url(#gold)" stroke-width="3" stroke-linejoin="miter"/>
-      <!-- تعبئة بالنقش الماسي -->
-      <path d="M -72 -294 L 72 -294 L 72 100 L 40 158 L 72 215 Q 92 270 50 308 L -22 288 Q -68 268 -72 220 L -72 100 L -42 50 L -72 0 Z"
+      <!-- الإطار الذهبي: حرف اللام مع ذيل سفلي -->
+      <path d="M -90 -310 L 90 -310 L 90 100 L 50 160 L 90 220 Q 110 280 60 320 L -30 305 Q -82 280 -90 230 L -90 100 L -52 50 L -90 0 Z"
+            fill="url(#gold)" stroke="url(#gold)" stroke-width="2" stroke-linejoin="round"/>
+      <!-- تعبئة بالنقش الماسي (ذهبي) -->
+      <path d="M -77 -296 L 77 -296 L 77 95 L 45 158 L 77 215 Q 96 270 55 305 L -25 290 Q -70 270 -77 222 L -77 95 L -47 50 L -77 0 Z"
             fill="url(#diamond)"/>
       <!-- إطار داخلي رقيق -->
-      <path d="M -72 -294 L 72 -294 L 72 100 L 40 158 L 72 215 Q 92 270 50 308 L -22 288 Q -68 268 -72 220 L -72 100 L -42 50 L -72 0 Z"
-            fill="none" stroke="url(#gold)" stroke-width="1" opacity=".55"/>
-      <!-- ذيل اللام السفلي الأيسر -->
-      <path d="M -72 220 Q -90 265 -45 305 L -15 290 Q -50 260 -72 220 Z"
-            fill="url(#diamond)"/>
-      <path d="M -68 222 Q -85 262 -42 297 L -18 285 Q -50 258 -68 222 Z"
-            fill="none" stroke="url(#gold)" stroke-width="1" opacity=".55"/>
+      <path d="M -77 -296 L 77 -296 L 77 95 L 45 158 L 77 215 Q 96 270 55 305 L -25 290 Q -70 270 -77 222 L -77 95 L -47 50 L -77 0 Z"
+            fill="none" stroke="url(#gold)" stroke-width="1" opacity=".7"/>
+      <!-- خط فاصل عمودي في منتصف اللام -->
+      <line x1="0" y1="-296" x2="0" y2="285" stroke="url(#goldSoft)" stroke-width="1" opacity=".5"/>
     </g>
 
     <!-- ════════════ حرف الألف (اليمين، رقم 1) ════════════ -->
     <g transform="translate(335 0)">
-      <!-- الإطار الذهبي: حرف الألف أعرض قليلاً مع حواف مدورة -->
-      <path d="M -65 -345 L 65 -345 L 90 -300 L 90 305 L 65 345 L -65 345 L -90 305 L -90 -300 Z"
-            fill="url(#gold)" stroke="url(#gold)" stroke-width="3" stroke-linejoin="miter"/>
-      <!-- تعبئة بنمط محبوك -->
-      <path d="M -48 -330 L 48 -330 L 72 -298 L 72 302 L 48 330 L -48 330 L -72 302 L -72 -298 Z"
-            fill="url(#braid)"/>
+      <!-- الإطار الذهبي: أعرض قليلاً مع حواف مدورة -->
+      <path d="M -65 -350 L 65 -350 L 90 -305 L 90 305 L 65 350 L -65 350 L -90 305 L -90 -305 Z"
+            fill="url(#gold)" stroke="url(#gold)" stroke-width="2" stroke-linejoin="round"/>
+      <!-- تعبئة بنمط الموجات -->
+      <path d="M -52 -335 L 52 -335 L 76 -302 L 76 302 L 52 335 L -52 335 L -76 302 L -76 -302 Z"
+            fill="url(#wave)"/>
       <!-- إطار داخلي رقيق -->
-      <path d="M -48 -330 L 48 -330 L 72 -298 L 72 302 L 48 330 L -48 330 L -72 302 L -72 -298 Z"
-            fill="none" stroke="url(#gold)" stroke-width="1" opacity=".55"/>
-      <!-- خط ذهبي مركزي رأسي يربط الألف -->
-      <line x1="0" y1="-325" x2="0" y2="325" stroke="url(#goldThin)" stroke-width="1.5" opacity=".7"/>
+      <path d="M -52 -335 L 52 -335 L 76 -302 L 76 302 L 52 335 L -52 335 L -76 302 L -76 -302 Z"
+            fill="none" stroke="url(#gold)" stroke-width="1" opacity=".7"/>
+      <!-- خط فاصل عمودي في منتصف الألف -->
+      <line x1="0" y1="-330" x2="0" y2="330" stroke="url(#goldSoft)" stroke-width="1" opacity=".5"/>
       <!-- زخرفة علوية (نجمة في قمة الألف) -->
-      <g transform="translate(0 -345)">
-        <rect x="-25" y="-13" width="50" height="26" fill="url(#gold)"/>
-        <rect x="-17" y="-7" width="34" height="14" fill="url(#leather)"/>
+      <g transform="translate(0 -350)">
+        <rect x="-25" y="-14" width="50" height="28" fill="url(#gold)"/>
+        <rect x="-18" y="-7" width="36" height="14" fill="url(#grain)"/>
         <g transform="rotate(45)">
-          <rect x="-4.5" y="-4.5" width="9" height="9" fill="url(#gold)"/>
+          <rect x="-5" y="-5" width="10" height="10" fill="url(#gold)"/>
         </g>
       </g>
       <!-- قاعدة سفلية عريضة -->
-      <rect x="-35" y="345" width="70" height="16" fill="url(#gold)"/>
-      <rect x="-25" y="345" width="50" height="7" fill="url(#leather)" opacity=".5"/>
+      <rect x="-35" y="350" width="70" height="16" fill="url(#gold)"/>
+      <rect x="-26" y="350" width="52" height="7" fill="url(#grain)" opacity=".5"/>
     </g>
 
   </g>
-
-  <!-- ═══ التوقيع بالأسفل: AL LAMEA ═══ -->
-  <text x="512" y="950" text-anchor="middle"
-        font-family="'Amiri', 'Reem Kufi', serif"
-        font-size="42" font-weight="700" fill="#7E6326"
-        letter-spacing="14">AL LAMEA</text>
 </svg>
