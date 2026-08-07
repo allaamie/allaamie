@@ -1,1 +1,96 @@
-:root{--green:#123b32;--cream:#f7f3e9;--gold:#bd8c49;--ink:#15362e;--muted:#708077;font-family:var(--font,Alexandria,sans-serif)}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--cream)}.portal{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr}.art{position:relative;min-height:100vh;padding:58px clamp(48px,8vw,120px);color:#fff;display:flex;flex-direction:column;background:linear-gradient(115deg,#092b24d8,#133d34aa),url('assets/admin-login-textile.jpg') center/cover}.art-copy{margin:auto 0}.art-copy p,.overline{color:var(--gold);font-size:10px;letter-spacing:1.2px}.art-copy h1{font:500 clamp(50px,6vw,86px)/1.05 'Reem Kufi',sans-serif;margin:14px 0 24px}.art-copy em{font-style:normal;color:#e5bc75}.art-copy span{font-size:12px;color:#e5ece6}.art footer{font-size:10px;color:#d5e0d9}.art footer i{color:var(--gold);font-style:normal;padding:0 8px}.login-side{display:grid;place-items:center;padding:35px;background:radial-gradient(circle at 70% 15%,#fff,transparent 35%),var(--cream)}.login-card{width:min(390px,100%)}.overline{margin:0 0 15px}.login-card h2,#reset h2{font:42px/1 'Reem Kufi',sans-serif;margin:0 0 13px}.sub{color:var(--muted);font-size:11px;line-height:2;margin:0 0 27px}form>label{display:block;font-size:11px;font-weight:700;margin:18px 0}input{display:block;width:100%;margin-top:9px;padding:14px;border:1px solid #d8cfbd;background:#fffcf5;color:var(--ink);font:12px Alexandria,sans-serif;outline:none}input:focus{border-color:var(--gold);box-shadow:0 0 0 3px #bd8c4822}.secret{position:relative}.secret input{padding-left:48px}.secret #eye{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:22px;height:22px;display:grid;place-items:center;font-size:18px;line-height:1;color:#728078;cursor:pointer;user-select:none}.secret #eye:hover{color:var(--gold)}.options{display:flex;align-items:center;justify-content:space-between;margin:8px 0 25px}.remember{font-size:10px;display:flex;align-items:center;gap:7px}.remember input{width:14px;margin:0;accent-color:var(--green)}.options a{color:#9a6d2e;font-size:10px}.login-btn{border:0;background:var(--green);color:white;width:100%;padding:16px 18px;text-align:center;font:600 12px Alexandria,sans-serif;cursor:pointer;transition:.2s}.login-btn:hover{background:#245547}.login-btn b{float:left;font-size:17px}.message{font-size:10px;line-height:1.8;color:#b24d3d;min-height:20px;text-align:center}.safe{font-size:9px;color:#7a857e;border-top:1px solid #ded5c5;padding-top:18px;margin-top:23px;text-align:center}dialog{border:0;padding:0;width:min(420px,calc(100% - 30px));background:var(--cream);box-shadow:0 18px 70px #06251e99}dialog::backdrop{background:#0d3028b9;backdrop-filter:blur(4px)}#reset form{padding:42px;position:relative}.x{position:absolute;left:17px;top:14px;border:0;background:none;font-size:26px;color:var(--ink);cursor:pointer}@media(max-width:800px){.portal{grid-template-columns:1fr}.art{display:none}.login-side{min-height:100vh}.login-card{width:min(400px,100%)}}
+/* ═══════════════════════════════════════════════════════════
+   بوابة اللامع - تسجيل الدخول
+   يستهلك المتغيرات من theme.css
+   ═══════════════════════════════════════════════════════════ */
+:root{
+  --green:#123b32;--cream:#F5F2EA;--gold:#BD8C49;--ink:#15362E;--muted:#708077;
+  --font:var(--font,Alexandria,sans-serif);
+  --display:var(--font-display,'Reem Kufi',sans-serif);
+}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:var(--cream);font-family:var(--font);-webkit-font-smoothing:antialiased;min-height:100vh}
+img{max-width:100%}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;background:none;border:0;color:inherit}
+::selection{background:var(--gold);color:#fff}
+
+.portal{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr}
+
+/* ── اللوحة الفنية (يسار) ───────────────────── */
+.art{position:relative;min-height:100vh;padding:58px clamp(48px,8vw,120px);color:#fff;display:flex;flex-direction:column;background:linear-gradient(115deg,rgba(9,43,36,.85),rgba(19,61,52,.7)),url('assets/admin-login-textile.jpg') center/cover}
+.art-copy{margin:auto 0}
+.art-copy p{color:var(--gold);font-size:10px;letter-spacing:1.2px;margin:0 0 8px}
+.art-copy h1{font:500 clamp(40px,5.5vw,86px)/1.05 var(--display);margin:14px 0 24px;color:#fff;letter-spacing:-.5px}
+.art-copy em{font-style:normal;color:#E5BC75}
+.art-copy span{font-size:12px;color:#E5ECE6;display:block;margin-top:8px}
+.art footer{font-size:10px;color:#D5E0D9;margin-top:auto;padding-top:20px}
+.art footer i{color:var(--gold);font-style:normal;padding:0 8px}
+
+/* ── لوحة الدخول (يمين) ───────────────────── */
+.login-side{display:grid;place-items:center;padding:35px;background:radial-gradient(circle at 70% 15%,#fff,transparent 35%),var(--cream);min-height:100vh}
+.login-card{width:min(390px,100%)}
+.overline{color:var(--gold);font-size:10px;letter-spacing:1.5px;font-weight:600;margin:0 0 15px;display:block}
+.login-card h2,#reset h2{font:500 clamp(30px,4vw,42px)/1.1 var(--display);margin:0 0 13px;color:var(--ink)}
+.sub{color:var(--muted);font-size:12px;line-height:1.9;margin:0 0 27px}
+
+form>label{display:block;font-size:11px;font-weight:700;margin:18px 0 8px;color:var(--ink)}
+input{display:block;width:100%;margin-top:9px;padding:14px 16px;border:1px solid #D8CFBD;background:#FFFCF5;color:var(--ink);font:14px var(--font);outline:none;border-radius:12px;transition:.25s}
+input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(189,140,73,.15)}
+input::placeholder{color:#A8A39A}
+
+.secret{position:relative}
+.secret input{padding-left:48px}
+.secret #eye{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:24px;height:24px;display:grid;place-items:center;font-size:18px;line-height:1;color:#728078;cursor:pointer;user-select:none;transition:.2s}
+.secret #eye:hover{color:var(--gold)}
+
+.options{display:flex;align-items:center;justify-content:space-between;margin:8px 0 25px;flex-wrap:wrap;gap:8px}
+.remember{font-size:10.5px;display:flex;align-items:center;gap:7px;color:var(--ink);font-weight:400}
+.remember input{width:15px;height:15px;margin:0;accent-color:var(--green);border:1px solid #D8CFBD;border-radius:4px;padding:0}
+.options a{color:#9A6D2E;font-size:10.5px;transition:.2s}
+.options a:hover{color:var(--gold)}
+
+.login-btn{border:0;background:var(--green);color:#fff;width:100%;padding:16px 18px;text-align:center;font:600 13px var(--font);cursor:pointer;transition:.25s;border-radius:12px;letter-spacing:.5px}
+.login-btn:hover{background:#245547;transform:translateY(-1px);box-shadow:0 12px 28px -10px rgba(18,59,46,.4)}
+.login-btn:active{transform:translateY(0)}
+.login-btn b{float:left;font-size:18px;font-weight:400}
+
+.message{font-size:10.5px;line-height:1.7;color:#B24D3D;min-height:18px;text-align:center;margin-top:8px}
+.safe{font-size:9.5px;color:#7A857E;border-top:1px solid #DED5C5;padding-top:18px;margin-top:23px;text-align:center;letter-spacing:.3px}
+
+dialog{border:0;padding:0;width:min(420px,calc(100% - 30px));background:var(--cream);box-shadow:0 18px 70px rgba(6,37,30,.6);border-radius:20px;max-height:90vh;overflow:auto}
+dialog::backdrop{background:rgba(13,48,40,.72);backdrop-filter:blur(4px)}
+#reset form{padding:42px;position:relative}
+.x{position:absolute;left:17px;top:14px;border:0;background:none;font-size:26px;color:var(--ink);cursor:pointer;line-height:1;width:32px;height:32px;display:grid;place-items:center;border-radius:50%;transition:.2s}
+.x:hover{background:rgba(29,26,20,.06)}
+
+/* ── تجاوب ────────────────────────────── */
+/* Tablet: 900px وأقل */
+@media(max-width:900px){
+  .portal{grid-template-columns:1fr 1fr}
+  .art{padding:48px 36px}
+  .art-copy h1{font-size:48px}
+}
+/* Tablet portrait: 768px وأقل */
+@media(max-width:768px){
+  .portal{grid-template-columns:1fr}
+  .art{display:none}
+  .login-side{min-height:100vh;padding:30px 20px}
+  .login-card{width:min(420px,100%)}
+}
+/* Mobile: 480px وأقل */
+@media(max-width:480px){
+  .login-side{padding:24px 16px}
+  .login-card h2{font-size:30px}
+  .sub{font-size:11.5px}
+  input{padding:12px 14px;font-size:13px}
+  .login-btn{padding:15px;font-size:12.5px}
+  #reset form{padding:32px 24px}
+  .options{flex-direction:column;align-items:flex-start;gap:6px}
+}
+/* Small phones: 380px وأقل */
+@media(max-width:380px){
+  .login-side{padding:20px 12px}
+  .login-card h2{font-size:26px}
+  .message{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}

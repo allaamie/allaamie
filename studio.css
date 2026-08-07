@@ -238,26 +238,97 @@ button{font-family:inherit;cursor:pointer;background:none;border:0;color:inherit
 .zoom-fab button:hover{border-color:var(--gold);color:var(--gold-l)}
 
 /* ── تجاوب ──────────────────────────────── */
-@media(max-width:1080px){
-  .studio{grid-template-rows:60px 1fr 214px}
-  .arena{grid-template-columns:64px 1fr}
-  .rail-r{position:absolute;top:12px;left:76px;bottom:12px;z-index:35;width:300px;background:rgba(255,255,255,.96);backdrop-filter:blur(22px);border:1px solid var(--line);border-radius:18px;transform:translateY(14px);opacity:0;visibility:hidden;transition:.45s var(--ease)}
-  .rail-r.open{transform:none;opacity:1;visibility:visible}
-  .rail-r-close{display:grid!important}
+/* Tablet: 1024px وأقل */
+@media(max-width:1024px){
+  .studio{grid-template-rows:64px 1fr 220px}
+  .arena{grid-template-columns:70px 1fr}
+  .topbar .back{font-size:10.5px}
+  .topbar .mark img{height:32px}
+  .s-card{width:160px}
 }
-@media(max-width:680px){
-  .avatar-box{width:min(52vw,270px)}
-  .topbar .mark b{display:none}
-  .studio{grid-template-rows:56px 1fr 206px}
-  .tool{width:46px;padding:9px 3px}
-  .tool small{display:none}
+/* Tablet portrait / small: 768px وأقل */
+@media(max-width:768px){
+  .studio{grid-template-rows:60px 1fr 210px}
+  .arena{grid-template-columns:62px 1fr}
+  .topbar{padding:0 14px}
+  .topbar .mark b{font-size:10px}
+  .topbar .mark b small{font-size:7px;letter-spacing:1px}
+  .cart-pill{padding:7px 12px;font-size:10px}
+  .avatar-box{width:min(48vw,300px)}
   .s-card{width:150px}
-  .advisor{left:12px;bottom:12px;width:calc(100% - 90px)}
+}
+/* Mobile: 640px وأقل */
+@media(max-width:640px){
+  .studio{grid-template-rows:56px 1fr 200px}
+  .arena{grid-template-columns:56px 1fr;gap:0}
+  .topbar{padding:0 12px;gap:10px}
+  .topbar .back{display:none}
+  .topbar .mark img{height:28px}
+  .topbar .mark b{font-size:9.5px;letter-spacing:1.5px}
+  .topbar .mark b small{font-size:6.5px}
+  .cart-pill{padding:6px 10px;font-size:9.5px;gap:6px}
+  .cart-pill svg{width:13px;height:13px}
+  .rail-l{padding:8px 0;gap:6px}
+  .tool{width:46px;padding:8px 3px;gap:4px}
+  .tool svg{width:17px;height:17px}
+  .tool small{display:none}
+  .avatar-box{width:min(60vw,240px)}
+  .pedestal::after{box-shadow:0 0 14px rgba(184,145,70,.10),inset 0 0 22px rgba(184,145,70,.08)}
+  .ped-ring{border-width:1px}
+  .catalog{padding:8px 0 12px}
+  .tabs{padding:10px 12px 0;gap:3px}
+  .tab{padding:8px 14px;font-size:9.5px;letter-spacing:1.2px}
+  .cat-scroll{padding:12px 12px 16px;gap:12px}
+  .s-card{width:140px;border-radius:14px}
+  .s-info{padding:10px 12px 12px;gap:6px}
+  .s-name{font-size:12.5px;line-height:1.45}
+  .s-price{font-size:11px}
+  .try-btn{padding:8px;font-size:9px}
+  .advisor{left:10px;right:10px;bottom:10px;width:auto;padding:16px;border-radius:16px}
+  .adv-head b{font-size:15px}
+  .adv-text{font-size:10.5px;line-height:1.85}
+  .adv-item{padding:6px 8px;gap:8px}
+  .adv-item img{width:30px;height:36px}
+  .adv-item b{font-size:11.5px}
+  .adv-item em{font-size:9px}
+  .adv-item button{padding:6px 8px;font-size:8.5px}
   .stage-hint{display:none}
+  .zoom-fab{left:10px;top:10px;gap:6px}
+  .zoom-fab button{width:34px;height:34px;font-size:15px}
+  .look-total{font-size:9px;padding:7px 14px;gap:8px}
+  .look-total b{font-size:12px}
+  .save-look-card{padding:24px 22px;border-radius:16px}
+  .save-look-card b{font-size:20px}
+  .save-look-card p{font-size:9.5px}
+  .save-look-card input{padding:12px 14px;font-size:12px}
+  .save-look-actions .gold-btn{padding:12px;font-size:11px}
+  .looks{width:100%;max-width:100%;border-left:0}
+  .looks header{padding:18px 20px}
+  .looks header b{font-size:20px}
+  .looks-body{padding:14px 16px}
+  .look-card{padding:14px}
+  .toast{font-size:11px;padding:11px 20px;left:14px;right:14px;transform:none;bottom:14px;border-radius:10px}
+  .toast.show{transform:none}
+  .stage-vignette{background:radial-gradient(ellipse 90% 80% at 50% 45%,transparent 60%,rgba(0,0,0,.4))}
+}
+/* Very small phones: 380px وأقل */
+@media(max-width:380px){
+  .tool{width:42px;padding:6px 2px}
+  .s-card{width:130px}
+  .avatar-box{width:min(70vw,200px)}
+  .topbar .mark b{display:none}
 }
 .rail-r-close{display:none;place-items:center}
 
 /* أداء: تعطيل الحركات عند طلب تقليلها */
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+
+/* ── تحسينات اللمس على الجوال ── */
+@media(hover:none) and (pointer:coarse){
+  .tool{padding:14px 4px}
+  .tab{padding:12px 18px}
+  .s-card .try-btn{padding:12px 8px}
+  .tool:active{background:rgba(184,145,70,.12)}
 }

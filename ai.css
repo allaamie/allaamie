@@ -226,12 +226,47 @@
 .ai-context{display:flex;gap:7px;flex-wrap:wrap;align-self:stretch}
 .ai-context .ctx{font-size:9px;color:#9fe0a8;background:rgba(20,56,46,.4);border:1px solid rgba(46,125,50,.4);padding:5px 11px;border-radius:10px}
 
-/* الجوال */
+/* Tablet: 1024px وأقل */
+@media(max-width:1024px){
+  .ai-panel{left:18px;bottom:90px;width:min(380px,calc(100vw - 36px))}
+}
+/* Mobile: 640px وأقل */
 @media(max-width:640px){
-  .ai-fab{left:16px;bottom:16px;width:56px;height:56px;font-size:21px}
-  .ai-panel{left:0;bottom:0;width:100%;height:84dvh;border-radius:22px 22px 0 0;border-left:0;border-right:0;border-bottom:0}
-  .ai-msg{max-width:92%}
-  .ai-id span{max-width:150px}
+  .ai-fab{left:14px;bottom:14px;width:54px;height:54px;font-size:20px}
+  .ai-panel{left:0;right:0;bottom:0;width:100%;max-width:100%;height:88dvh;border-radius:22px 22px 0 0;border-left:0;border-right:0;border-bottom:0}
+  .ai-msg{max-width:92%;font-size:12px;padding:10px 13px}
+  .ai-id span{max-width:150px;font-size:8px}
+  .ai-id b{font-size:17px}
+  .ai-head{padding:13px 14px 10px}
+  .ai-orb{width:34px;height:34px}
+  .ai-tabs{padding:10px 12px 8px;gap:5px}
+  .ai-tabs button{padding:7px 12px;font-size:10px}
+  .ai-thread{padding:14px 12px 8px;gap:10px}
+  .ai-sugg{padding:6px 12px;gap:6px;max-height:96px}
+  .ai-chip{padding:7px 12px;font-size:10px}
+  .ai-composer{padding:10px 12px 12px;gap:6px}
+  .ai-composer input{padding:11px 13px;font-size:12px}
+  .ai-composer button{width:42px;height:42px}
+  .ai-card{width:148px;border-radius:14px}
+  .ai-piece{padding:8px;gap:10px;border-radius:14px}
+  .ai-piece img{width:60px;height:60px}
+  .ai-outfit-foot{flex-direction:column;align-items:stretch;gap:10px;padding:12px}
+  .ai-outfit-foot .num{font-size:14px}
+  .ai-cmp th{width:60px;padding:8px 9px;font-size:9px}
+  .ai-cmp td{padding:8px 9px;font-size:9.5px}
+  .ai-cmp td img{max-width:90px}
+  .ai-score{flex-direction:column;align-items:stretch;gap:14px;padding:14px}
+  .ai-ring{width:80px;height:80px;margin:0 auto}
+  .ai-order{padding:12px}
+  .ai-rv-strip{padding:12px 14px;flex-direction:column;align-items:flex-start;gap:6px}
+}
+/* Small phones: 380px وأقل */
+@media(max-width:380px){
+  .ai-fab{left:10px;bottom:10px;width:48px;height:48px;font-size:18px}
+  .ai-panel{height:92dvh}
+  .ai-tabs button{padding:6px 10px;font-size:9.5px}
+  .ai-composer input{font-size:11.5px}
+  .ai-card{width:135px}
 }
 @media(prefers-reduced-motion:reduce){
   .ai-fab,.ai-orb::after,.ai-typing i,.ai-scan::after{animation:none!important}
