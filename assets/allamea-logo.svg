@@ -1,29 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="اللامع — AL LAMEA">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="اللامع — AL LAMEA">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#D9BF74"/>
-      <stop offset=".55" stop-color="#B89146"/>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F2DA9A"/>
+      <stop offset=".45" stop-color="#D9BF74"/>
+      <stop offset=".75" stop-color="#B89146"/>
       <stop offset="1" stop-color="#8A6A2E"/>
     </linearGradient>
+    <linearGradient id="goldGradH" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8A6A2E"/>
+      <stop offset=".5" stop-color="#F2DA9A"/>
+      <stop offset="1" stop-color="#8A6A2E"/>
+    </linearGradient>
+    <linearGradient id="leather" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2A1F12"/>
+      <stop offset=".5" stop-color="#1A1308"/>
+      <stop offset="1" stop-color="#0F0A04"/>
+    </linearGradient>
+    <linearGradient id="leather2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1A1308"/>
+      <stop offset=".5" stop-color="#2A1F12"/>
+      <stop offset="1" stop-color="#1A1308"/>
+    </linearGradient>
+    <pattern id="stitch" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(90)">
+      <rect width="14" height="14" fill="url(#leather)"/>
+      <line x1="7" y1="0" x2="7" y2="14" stroke="#3A2A14" stroke-width="1" opacity=".4"/>
+      <line x1="0" y1="3" x2="14" y2="3" stroke="#0A0604" stroke-width=".8" opacity=".5"/>
+    </pattern>
+    <pattern id="diamond" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <rect width="32" height="32" fill="url(#leather2)"/>
+      <g transform="translate(16 16) rotate(45)">
+        <rect x="-8" y="-8" width="16" height="16" fill="none" stroke="url(#goldGrad)" stroke-width="1.2" opacity=".9"/>
+        <rect x="-4" y="-4" width="8" height="8" fill="none" stroke="url(#goldGrad)" stroke-width=".8" opacity=".7"/>
+        <circle r="1.4" fill="url(#goldGrad)"/>
+      </g>
+    </pattern>
+    <pattern id="centerBraid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <rect width="24" height="24" fill="url(#leather)"/>
+      <path d="M0 6 Q12 0 24 6 M0 18 Q12 24 24 18" stroke="url(#goldGrad)" stroke-width="1.2" fill="none" opacity=".8"/>
+      <line x1="0" y1="12" x2="24" y2="12" stroke="#0A0604" stroke-width="1" opacity=".5"/>
+    </pattern>
   </defs>
-  <!-- شكل المعين المميز (شعار الدارة) -->
-  <g transform="translate(120 120)">
-    <!-- المعين الخارجي -->
-    <path d="M0 -95 L78 -22 L46 60 L-46 60 L-78 -22 Z"
-          fill="none" stroke="url(#g)" stroke-width="3.5" stroke-linejoin="miter"/>
-    <!-- المعين الداخلي -->
-    <path d="M0 -62 L52 -16 L32 42 L-32 42 L-52 -16 Z"
-          fill="none" stroke="url(#g)" stroke-width="2" opacity=".75" stroke-linejoin="miter"/>
-    <!-- نقطة المركز -->
-    <circle r="6" fill="url(#g)"/>
-    <!-- خط ذهبي علوي -->
-    <line x1="-90" y1="0" x2="-66" y2="0" stroke="url(#g)" stroke-width="3"/>
-    <line x1="66"  y1="0" x2="90"  y2="0" stroke="url(#g)" stroke-width="3"/>
+
+  <rect width="1024" height="1024" fill="#F1ECDE"/>
+
+  <!-- الشعار العربي يقرأ من اليمين لليسار: ا - ل - م - ع -->
+  <!-- الترتيب في x: الحرف الأول (ا) في اليمين، الأخير (ع) في اليسار -->
+  <g transform="translate(512 512) scale(-1 1)">
+
+    <!-- ═════ حرف العين (اليسار) ═════ -->
+    <g transform="translate(-340 0)">
+      <path d="M -100 -300 L 100 -300 L 100 -100 L 60 -40 L 100 60 L 100 250 L -100 250 L -100 60 L -60 0 L -100 -100 Z"
+            fill="url(#goldGrad)" stroke="url(#goldGrad)" stroke-width="6" stroke-linejoin="miter"/>
+      <path d="M -82 -282 L 82 -282 L 82 -110 L 42 -40 L 82 50 L 82 232 L -82 232 L -82 50 L -42 0 L -82 -110 Z"
+            fill="url(#stitch)"/>
+      <g stroke="#0A0604" stroke-width="1.2" opacity=".6">
+        <line x1="-50" y1="-280" x2="-50" y2="230"/>
+        <line x1="-25" y1="-280" x2="-25" y2="230"/>
+        <line x1="0" y1="-280" x2="0" y2="230"/>
+        <line x1="25" y1="-280" x2="25" y2="230"/>
+        <line x1="50" y1="-280" x2="50" y2="230"/>
+      </g>
+      <path d="M -82 232 Q -100 280 -50 320 L -10 280 Q -30 240 -82 232 Z"
+            fill="url(#goldGrad)"/>
+      <path d="M -70 240 Q -85 275 -45 305 L -18 275 Q -35 245 -70 240 Z"
+            fill="url(#leather)"/>
+    </g>
+
+    <!-- ═════ حرف الميم (وسط-يسار) ═════ -->
+    <g transform="translate(-110 0)">
+      <path d="M -120 -310 L 120 -310 L 120 100 L 80 150 L 120 200 L 120 280 L -120 280 L -120 100 L -80 50 L -120 0 Z"
+            fill="url(#goldGrad)" stroke="url(#goldGrad)" stroke-width="6" stroke-linejoin="miter"/>
+      <ellipse cx="0" cy="220" rx="80" ry="55" fill="url(#goldGrad)"/>
+      <ellipse cx="0" cy="220" rx="62" ry="38" fill="url(#leather)"/>
+      <path d="M -100 -292 L 100 -292 L 100 100 L 70 145 L 100 190 L 100 250 Q 50 230 0 220 Q -50 230 -100 250 L -100 100 L -65 50 L -100 0 Z"
+            fill="url(#stitch)"/>
+      <g stroke="#0A0604" stroke-width="1.2" opacity=".6">
+        <line x1="-50" y1="-290" x2="-50" y2="190"/>
+        <line x1="-25" y1="-290" x2="-25" y2="190"/>
+        <line x1="0" y1="-290" x2="0" y2="190"/>
+        <line x1="25" y1="-290" x2="25" y2="190"/>
+        <line x1="50" y1="-290" x2="50" y2="190"/>
+      </g>
+      <circle cx="0" cy="220" r="6" fill="url(#goldGrad)"/>
+    </g>
+
+    <!-- ═════ حرف اللام (وسط-يمين) - نقش المعين ═════ -->
+    <g transform="translate(120 0)">
+      <path d="M -90 -310 L 90 -310 L 90 100 L 50 160 L 90 220 Q 110 280 60 320 L -30 300 Q -80 270 -90 220 L -90 100 L -50 50 L -90 0 Z"
+            fill="url(#goldGrad)" stroke="url(#goldGrad)" stroke-width="6" stroke-linejoin="miter"/>
+      <path d="M -72 -292 L 72 -292 L 72 100 L 38 158 L 72 215 Q 90 270 50 305 L -22 285 Q -68 262 -72 215 L -72 100 L -40 50 L -72 0 Z"
+            fill="url(#diamond)"/>
+      <path d="M -72 -292 L 72 -292 L 72 100 L 38 158 L 72 215 Q 90 270 50 305 L -22 285 Q -68 262 -72 215 L -72 100 L -40 50 L -72 0 Z"
+            fill="none" stroke="url(#goldGrad)" stroke-width="2" opacity=".7"/>
+    </g>
+
+    <!-- ═════ حرف الألف (اليمين) - أطول حرف عمودي ═════ -->
+    <g transform="translate(340 0)">
+      <path d="M -55 -360 L 55 -360 L 80 -300 L 80 320 L 55 360 L -55 360 L -80 320 L -80 -300 Z"
+            fill="url(#goldGrad)" stroke="url(#goldGrad)" stroke-width="6" stroke-linejoin="miter"/>
+      <path d="M -40 -344 L 40 -344 L 64 -298 L 64 318 L 40 344 L -40 344 L -64 318 L -64 -298 Z"
+            fill="url(#centerBraid)"/>
+      <line x1="0" y1="-340" x2="0" y2="340" stroke="url(#goldGradH)" stroke-width="3" opacity=".75"/>
+      <g transform="translate(0 -360)">
+        <rect x="-22" y="-12" width="44" height="24" fill="url(#goldGrad)"/>
+        <rect x="-15" y="-7" width="30" height="14" fill="url(#leather)"/>
+        <circle r="3" cx="0" cy="0" fill="url(#goldGrad)"/>
+      </g>
+      <rect x="-30" y="340" width="60" height="14" fill="url(#goldGrad)"/>
+    </g>
+
   </g>
-  <!-- كلمة اللامع -->
-  <text x="120" y="220" text-anchor="middle"
-        font-family="Amiri, 'Reem Kufi', 'IBM Plex Sans Arabic', serif"
-        font-size="20" font-weight="700" fill="#B89146"
-        direction="rtl" unicode-bidi="bidi-override">اللامع</text>
+
+  <!-- ═══ AL LAMEA أسفل الشعار (لاتيني، يُقرأ من اليسار لليمين) ═══ -->
+  <text x="512" y="980" text-anchor="middle"
+        font-family="'Amiri', 'Reem Kufi', serif"
+        font-size="38" font-weight="700" fill="#8A6A2E"
+        letter-spacing="14">AL LAMEA</text>
 </svg>
