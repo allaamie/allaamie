@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+/tmp/
+
+# Build outputs
+/dist/
+/build/
+/out/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE / OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Search artifacts (not part of project)
+image-search/
+
+# Temporary
+.cache/
+*.log
+*.tmp
