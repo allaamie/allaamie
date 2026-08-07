@@ -16,7 +16,7 @@
   };
 
   /* ── Service Worker ─────────────────────────────── */
-  if ('serviceWorker' in navigator) {
+  if (typeof navigator !== 'undefined' && 'serviceWorker' in navigator) {
     addEventListener('load', () => {
       navigator.serviceWorker.register('./sw.js', { scope: './' }).then(reg => {
         /* تحديث جديد: نفعّله بهدوء ثم نحدّث الصفحة مرة واحدة */
@@ -53,9 +53,11 @@
   /* ── لافتة التثبيت (Android / Desktop Chrome) ──── */
   let deferred = null;
   addEventListener('beforeinstallprompt', e => {
-    e.preventDefault();
-    const dismissed = +localStorage.getItem('ai-install-dismissed') || 0;
-    if (Date.now() - dismissed < 7 * 864e5) return; // مرة كل ٧ أيام بحد أقصى
+    try { e.preventDefault(); } catch (er) { }
+    try {
+      const dismissed = +(localStorage.getItem('ai-install-dismissed') || 0);
+      if (Date.now() - dismissed < 7 * 864e5) return; // مرة كل ٧ أيام بحد أقصى
+    } catch (er) { }
     deferred = e;
     setTimeout(showInstallBanner, 14000); // بعد أن يتذوق العميل التجربة
   });
@@ -93,19 +95,22 @@
       deferred = null;
     };
     el.querySelector('.pw-no').onclick = () => {
-      localStorage.setItem('ai-install-dismissed', String(Date.now()));
+      try { localStorage.setItem('ai-install-dismissed', String(Date.now())); } catch (e) { }
       el.remove();
     };
   }
 
   /* ── تلميح iOS Safari (لا يدعم beforeinstallprompt) ── */
-  const ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-  const standalone = navigator.standalone || matchMedia('(display-mode: standalone)').matches;
-  if (ios && !standalone && !localStorage.getItem('ai-install-dismissed')) {
-    setTimeout(() => {
-      if (deferred || document.getElementById('pwa-install')) return;
-      toast('✦ أضف اللامع لشاشتك الرئيسية من زر المشاركة في Safari');
-      localStorage.setItem('ai-install-dismissed', String(Date.now()));
-    }, 20000);
-  }
+  try {
+    const ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    const standalone = (navigator.standalone === true) ||
+      (typeof matchMedia === 'function' && matchMedia('(display-mode: standalone)').matches);
+    if (ios && !standalone && !localStorage.getItem('ai-install-dismissed')) {
+      setTimeout(() => {
+        if (deferred || document.getElementById('pwa-install')) return;
+        toast('✦ أضف اللامع لشاشتك الرئيسية من زر المشاركة في Safari');
+        try { localStorage.setItem('ai-install-dismissed', String(Date.now())); } catch (e) { }
+      }, 20000);
+    }
+  } catch (e) { /* iOS detection failed — لا نمنع عمل الباقي */ }
 })();

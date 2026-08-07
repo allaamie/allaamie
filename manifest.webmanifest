@@ -9,12 +9,15 @@
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#090909",
-  "theme_color": "#090909",
+  "background_color": "#FFFFFF",
+  "theme_color": "#B89146",
   "categories": ["shopping", "fashion", "lifestyle"],
   "icons": [
-    { "src": "assets/favicon.png", "sizes": "256x256", "type": "image/png" },
-    { "src": "assets/allamea-logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+    { "src": "assets/favicon.ico", "sizes": "64x64", "type": "image/x-icon" },
+    { "src": "assets/favicon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "assets/favicon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "assets/allamea-logo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "assets/allamea-logo.png", "sizes": "1024x1024", "type": "image/png", "purpose": "any" }
   ],
   "shortcuts": [
     { "name": "المجموعة", "url": "./index.html#collection", "icons": [{ "src": "assets/favicon.png", "sizes": "256x256" }] },

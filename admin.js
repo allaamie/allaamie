@@ -1,12 +1,30 @@
-/* ══════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════════
    لوحة تحكم اللامع — نظام إدارة المنتجات المتكامل
    كل تغيير هنا ينعكس مباشرة: المتجر · الاستوديو · البحث
-   ══════════════════════════════════════════════════════════ */
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-const db = createClient('https://lebuvkypywblwrjhabpn.supabase.co', 'sb_publishable_CwGqVxwacoCk_JE6s-ziig_noJ0qf0u');
+   ═══════════════════════════════════════════════════════════ */
+let db = null;
+let _sbReady = false;
+async function initSupabase() {
+  try {
+    const mod = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');
+    db = mod.createClient('https://lebuvkypywblwrjhabpn.supabase.co', 'sb_publishable_CwGqVxwacoCk_JE6s-ziig_noJ0qf0u');
+    _sbReady = true;
+    return true;
+  } catch (e) {
+    console.warn('[admin] Supabase unavailable — fallback mode', e?.message);
+    return false;
+  }
+}
+initSupabase();
 
 const $ = (s, c = document) => c.querySelector(s);
 const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+/* دالة db موحّدة — تنتظر supabase إذا لم يكن جاهزاً */
+const dbReady = () => new Promise(res => {
+  if (_sbReady && db) return res(db);
+  if (!_sbReady) { setTimeout(() => res(dbReady().then(() => db)), 100); return; }
+  res(null);
+});
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const fmt = n => (+n || 0).toLocaleString('en-US');
 const money = n => `${fmt(n)} ر.س`;
